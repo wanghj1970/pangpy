@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HA Studio - 🐷之家</title>
+
+  <style>
+    body{
+      font-family:'Segoe UI',sans-serif;
+      background:#f4f7f6;
+      margin:0;
+      padding:7vh 20px 10vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      color:#2c3e50;
+    }
+
+    .nav{
+      width:100%;
+      max-width:1020px;
+      margin-bottom:18px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      background:#fff;
+      padding:8px 14px;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.05);
+      color:#57606f;
+      display:inline-block;
+      transition:.2s;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,0.08);}
+
+    /* ✅ 统一 logo */
+    .brand{display:flex;align-items:center;gap:10px;user-select:none;}
+    .brand-logo{width:26px;height:26px;display:block;opacity:.95;}
+    .brand-name{font-weight:700;letter-spacing:.5px;color:#2c3e50;}
+
+    .header{width:100%;max-width:1020px;margin:8px 0 18px;}
+    .header h1{margin:0 0 6px;font-size:2em;}
+    .header p{margin:0;color:#7f8c8d;line-height:1.6;}
+
+    .section{width:100%;max-width:1020px;margin:26px 0 44px;}
+    .section h2{
+      margin:0 0 14px;
+      padding-left:10px;
+      border-left:4px solid #03a9f4;
+      font-size:1.2em;
+      font-weight:650;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:18px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.05);
+      transition:.2s;
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(0,0,0,0.09);}
+
+    .img-wrap{
+      background:#eef2f4;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
+    }
+
+    /* ✅ 不裁切：完整显示原图 */
+    .card img{
+      max-width:100%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      border-radius:10px;
+    }
+
+    .meta{
+      padding:10px 14px 14px;
+      border-top:1px solid rgba(0,0,0,0.04);
+      color:#7f8c8d;
+      font-size:.92em;
+      line-height:1.5;
+    }
+    .meta b{color:#2c3e50;font-weight:650;}
+
+    /* ✅ 只有允许全屏的卡片才显示 zoom-in */
+    .card.fullscreen{cursor:zoom-in;}
+    .card:not(.fullscreen){cursor:default;}
+
+    /* ✅ 全屏 Lightbox（只给概览用） */
+    .lb{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,0.86);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+    }
+    .lb.show{display:flex;}
+    .lb-inner{width:100vw;height:100vh;position:relative;background:#0b0f14;}
+    .lb-img{width:100%;height:100%;object-fit:contain;display:block;background:#0b0f14;}
+    .lb-close{
+      position:absolute; top:14px; right:14px;
+      border:none;
+      background:rgba(255,255,255,0.12);
+      color:#e2e8f0;
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      z-index:2;
+    }
+    .lb-close:hover{background:rgba(255,255,255,0.18);}
+    .lb-top{
+      position:absolute; left:0; right:0; top:0;
+      padding:10px 14px;
+      display:flex; justify-content:space-between; align-items:center;
+      color:#cbd5e1; font-size:.92em;
+      background:linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+    .lb-title{
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70vw;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <a class="btn" href="ha.html">← 返回 Home Assistant</a>
+    <div class="brand" title="🐷之家">
+      <img class="brand-logo" src="/favicon.svg" alt="logo" onerror="this.style.display='none'">
+      <div class="brand-name">🐷之家</div>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>🖼️ HA Studio</h1>
+    <p>小图按原比例展示；仅「概览」支持点击全屏（ESC 可关闭）</p>
+  </div>
+
+  <div id="content"></div>
+
+  <!-- 全屏（只用于 fullscreen: true 的分类，如概览） -->
+  <div class="lb" id="lb" aria-hidden="true">
+    <div class="lb-inner">
+      <img class="lb-img" id="lbImg" alt="preview" />
+      <div class="lb-top">
+        <div class="lb-title" id="lbText"></div>
+        <div>ESC 关闭</div>
+      </div>
+      <button class="lb-close" id="lbClose">关闭</button>
+    </div>
+  </div>
+
+<script>
+  const BASE = "images/studio/";
+
+  /**
+   * ✅ 关键修复点：
+   * - 每个分类明确 count（1 或 2） => 彻底杜绝多余窗口
+   * - 只有 fullscreen:true 的分类才绑定全屏
+   */
+  const rooms = [
+    { key:"overview",  name:"🏠 概览",   count:2, fullscreen:true  }, // 两张图，允许全屏
+    { key:"water",     name:"💧 饮水机", count:1, fullscreen:false }, // 小图，不全屏
+    { key:"power",     name:"🔌 供电",   count:1, fullscreen:false },
+    { key:"living",    name:"🛋 客厅",   count:2, fullscreen:false },
+    { key:"dining",    name:"🍽 餐厅",   count:2, fullscreen:false },
+    { key:"master",    name:"🛏 主卧",   count:2, fullscreen:false },
+    { key:"guest",     name:"🛌 次卧",   count:2, fullscreen:false },
+    { key:"bathroom",  name:"🚿 卫生间", count:2, fullscreen:false },
+    { key:"meter",     name:"⚡ 电表",   count:2, fullscreen:true }
+  ];
+
+  const container = document.getElementById("content");
+
+  // Lightbox
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lbImg");
+  const lbText = document.getElementById("lbText");
+  const lbClose = document.getElementById("lbClose");
+
+  function openLb(src, title){
+    lbImg.src = src;
+    lbText.textContent = title || "";
+    lb.classList.add("show");
+    lb.setAttribute("aria-hidden", "false");
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  }
+  function closeLb(){
+    lb.classList.remove("show");
+    lb.setAttribute("aria-hidden", "true");
+    lbImg.src = "";
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  }
+  lbClose.onclick = closeLb;
+  lb.addEventListener("click", (e)=>{ if(e.target === lb) closeLb(); });
+  document.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape" && lb.classList.contains("show")) closeLb();
+  });
+
+  rooms.forEach(room => {
+    let html = `
+      <div class="section">
+        <h2>${room.name}</h2>
+        <div class="grid">
+    `;
+
+    for(let i=1;i<=room.count;i++){
+      const src = `${BASE}${room.key}-${i}.jpg`;
+      const title = `${room.name} · 第 ${i} 张`;
+
+      html += `
+        <div class="card ${room.fullscreen ? 'fullscreen' : ''}"
+             ${room.fullscreen ? `data-src="${src}" data-title="${escapeHtml(title)}"` : ""}>
+          <div class="img-wrap">
+            <img src="${src}" alt="${escapeHtml(title)}"
+                 onerror="this.closest('.card').style.display='none'">
+          </div>
+          <div class="meta">
+            <b>${escapeHtml(room.name)}</b> · 第 ${i} 张${room.fullscreen ? '（点击全屏）' : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    html += `
+        </div>
+      </div>
+    `;
+
+    container.insertAdjacentHTML("beforeend", html);
+  });
+
+  // ✅ 只给 fullscreen 卡片绑定全屏
+  document.querySelectorAll(".card.fullscreen").forEach(card=>{
+    card.addEventListener("click", ()=>{
+      openLb(card.dataset.src, card.dataset.title);
+    });
+  });
+
+  function escapeHtml(str){
+    return (str||'').replace(/[&<>"']/g, s=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[s]));
+  }
+</script>
+
+</body>
+</html>

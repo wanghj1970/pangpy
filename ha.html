@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Assistant - 🐷之家</title>
+  <style>
+    body{
+      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+      background:#f4f7f6;
+      margin:0;
+      padding:8vh 20px 10vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      color:#2c3e50;
+    }
+    .nav{width:100%;max-width:900px;margin-bottom:24px;}
+    .back-btn{
+      text-decoration:none;
+      color:#57606f;
+      font-size:0.95em;
+      padding:8px 14px;
+      border-radius:10px;
+      background:#fff;
+      box-shadow:0 6px 18px rgba(0,0,0,0.05);
+      transition:all .2s;
+      display:inline-block;
+    }
+    .back-btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,0.08);}
+    .header{text-align:center;margin:10px 0 36px;}
+    .header h1{margin:0 0 8px;font-size:2.1em;font-weight:650;letter-spacing:.5px;}
+    .header p{margin:0;color:#7f8c8d;}
+
+    .grid{
+      width:100%;
+      max-width:900px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:22px;
+    }
+    .card{
+      background:#fff;
+      padding:34px 26px;
+      border-radius:16px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.05);
+      text-decoration:none;
+      color:inherit;
+      transition:all .25s ease;
+      border-top:4px solid transparent;
+      text-align:center;
+    }
+    .card:hover{transform:translateY(-7px);box-shadow:0 18px 38px rgba(0,0,0,0.09);}
+    .icon{font-size:3em;display:block;margin-bottom:12px;}
+    .card h3{margin:0 0 10px;font-size:1.35em;}
+    .card p{margin:0;color:#7f8c8d;line-height:1.55;font-size:.98em;}
+
+    .card.plc:hover{border-top-color:#03a9f4;}
+    .card.studio:hover{border-top-color:#ff9800;}
+
+    .note{
+      width:100%;
+      max-width:900px;
+      margin-top:22px;
+      color:#a4b0be;
+      font-size:.92em;
+      line-height:1.6;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a class="back-btn" href="index.html">← 返回猪🐷之家</a>
+  </div>
+
+  <div class="header">
+    <h1>🏠 Home Assistant</h1>
+    <p>PLC HA（实时系统） + HA Studio（截图展厅）</p>
+  </div>
+
+  <div class="grid">
+    <a class="card plc" href="https://ha.pangpy.com" target="_blank" rel="noopener">
+      <span class="icon">⚙️</span>
+      <h3>PLC HA（实时系统）</h3>
+      <p>实时状态 / 自动化 / 控制中心</p>
+    </a>
+
+    <a class="card studio" href="ha-studio.html">
+      <span class="icon">🖼️</span>
+      <h3>HA Studio（展厅）</h3>
+      <p>概览 / 饮水机 / 供电 / 各房间 / 电表</p>
+    </a>
+  </div>
+
+  <div class="note">
+    提示：Studio 用来“展示”，PLC HA 用来“操作”。两者分离更安全、更清爽。
+  </div>
+</body>
+</html>
