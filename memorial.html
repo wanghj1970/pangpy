@@ -11,29 +11,44 @@
 
   <style>
     :root{
-      --bg: #f5f6f7;
-      --text: #555;
-      --muted: #a4b0be;
-      --muted2:#ced6e0;
-      --ink:#2f3542;
+      --text:#3f4550;
+      --muted:#7b8796;
+      --ink:#1f2937;
       --soft:#eef1f4;
-      --btnbg:#fff;
-      --btnbd:#ddd;
     }
 
     body{
       font-family:'Helvetica Neue','PingFang SC','Microsoft YaHei',sans-serif;
-      background:var(--bg);
       margin:0;
       padding:5vh 20px 8vh;
+      min-height:100vh;
       display:flex;
       flex-direction:column;
       align-items:center;
-      color:var(--text);
+
+      background-image:url("/mountain.jpg");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+
+      position:relative;
       line-height:1.9;
+      color:var(--text);
+    }
+    /* 怀念：更深、更冷 */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:linear-gradient(
+        to bottom,
+        rgba(10,18,28,0.22) 0%,
+        rgba(10,18,28,0.30) 55%,
+        rgba(10,18,28,0.40) 100%
+      );
+      z-index:-1;
     }
 
-    /* 顶部导航 */
     .nav{
       width:100%;
       max-width:760px;
@@ -42,127 +57,91 @@
       align-items:center;
       gap:10px;
       flex-wrap:wrap;
-      margin-bottom:40px;
+      margin-bottom:18px;
     }
     .back-btn{
       text-decoration:none;
-      color:var(--muted);
       font-size:.95em;
-      padding:6px 10px;
-      border-radius:8px;
+      padding:8px 12px;
+      border-radius:10px;
+      color:rgba(255,255,255,0.92);
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.22);
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 25px rgba(0,0,0,0.16);
     }
-    .back-btn:hover{ color:#57606f; background:rgba(255,255,255,.55); }
+    .back-btn:hover{ background:rgba(255,255,255,0.18); }
 
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
       user-select:none;
-      opacity:.95;
+      opacity:.98;
+      color:#fff;
     }
     .brand-logo{ width:24px; height:24px; display:block; }
-    .brand-name{ font-weight:700; letter-spacing:.5px; color:var(--ink); }
+    .brand-name{ font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,0.92); }
 
-    /* 主体（无卡片感：背景和页面一致） */
+    /* 阅读卡片 */
+    .reader,
+    .controls,
+    .numbers{ width:100%; max-width:760px; box-sizing:border-box; }
+
     .reader{
-      width:100%;
-      max-width:760px;
+      background:rgba(255,255,255,0.86);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.28);
+      border-radius:18px;
+      padding:26px 22px;
+      box-shadow:0 18px 55px rgba(0,0,0,0.22);
     }
 
-    .page{
-      display:none;
-      min-height:60vh;
-      padding:0;             
-      background:transparent;
-    }
+    .page{ display:none; min-height:60vh; padding:0; }
     .page.active{ display:block; }
 
-    /* 文本样式 */
-    .title-area{
-      text-align:center;
-      margin-bottom:30px;
-    }
-    .title-area h1{
-      font-weight:400;
-      letter-spacing:2px;
-      margin:0 0 10px;
-      color:var(--ink);
-    }
-    .date{
-      color:var(--muted);
-      font-size:.9em;
-      letter-spacing:1px;
-    }
+    .title-area{ text-align:center; margin-bottom:18px; }
+    .title-area h1{ font-weight:500; letter-spacing:2px; margin:0 0 10px; color:var(--ink); }
+    .date{ color:var(--muted); font-size:.9em; letter-spacing:1px; }
 
     .main-photo{
       width:100%;
-      border-radius:6px;
-      margin:25px 0;
+      border-radius:10px;
+      margin:22px 0;
       display:block;
       background:#e9edf1;
       min-height:200px;
       object-fit:cover;
     }
 
-    .content{
-      font-size:1.05em;
-      color:#57606f;
-      text-align:justify;
-    }
-    .content p{
-      margin:0 0 22px;
-      text-indent:2em;
-    }
+    .content{ font-size:1.05em; color:#4b5563; text-align:justify; }
+    .content p{ margin:0 0 22px; text-indent:2em; }
 
     .quote{
       margin:30px 0;
-      padding:20px;
+      padding:18px;
       background:var(--soft);
       font-style:italic;
       text-indent:0;
-      color:#747d8c;
-      border-left:3px solid var(--muted2);
+      color:#6b7280;
+      border-left:3px solid rgba(201,79,109,0.55);
+      border-radius:10px;
     }
 
-    /* 相册 */
-    .album-divider{
-      text-align:center;
-      margin:50px 0 30px;
-      color:var(--muted2);
-      letter-spacing:4px;
-    }
-    .photo-gallery{
-      display:flex;
-      flex-direction:column;
-      gap:30px;
-    }
-    .gallery-item{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-    }
+    .album-divider{ text-align:center; margin:46px 0 26px; color:#9aa3af; letter-spacing:4px; }
+    .photo-gallery{ display:flex; flex-direction:column; gap:26px; }
     .photo-gallery img{
       width:100%;
-      border-radius:6px;
+      border-radius:10px;
       display:block;
       background:#e9edf1;
       min-height:160px;
       object-fit:cover;
     }
-    .gallery-caption{
-      margin-top:12px;
-      color:var(--muted);
-      font-size:.92em;
-      line-height:1.65;
-      max-width:85%;
-    }
+    .gallery-caption{ margin-top:12px; color:#7b8796; font-size:.92em; line-height:1.65; max-width:85%; }
 
-    /* 控制区 */
     .controls{
-      margin-top:40px;
-      width:100%;
-      max-width:760px;
+      margin-top:18px;
       display:flex;
       justify-content:space-between;
       align-items:center;
@@ -170,50 +149,38 @@
       flex-wrap:wrap;
     }
     .page-info{
-      color:var(--muted);
+      color:rgba(255,255,255,0.88);
       font-size:.92em;
       white-space:nowrap;
+      text-shadow:0 10px 30px rgba(0,0,0,0.25);
     }
-
     button{
-      padding:6px 14px;
-      border:1px solid var(--btnbd);
-      background:var(--btnbg);
-      border-radius:8px;
+      padding:8px 14px;
+      border:1px solid rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.12);
+      color:rgba(255,255,255,0.92);
+      border-radius:10px;
       cursor:pointer;
-      color:#57606f;
       transition:.2s;
+      backdrop-filter: blur(10px);
     }
-    button:hover{ background:#f1f2f6; }
-    button:disabled{ opacity:.4; cursor:not-allowed; }
+    button:hover{ background:rgba(255,255,255,0.18); }
+    button:disabled{ opacity:.45; cursor:not-allowed; }
 
     .numbers{
-      margin-top:18px;
-      width:100%;
-      max-width:760px;
+      margin-top:12px;
       display:flex;
       justify-content:center;
       gap:6px;
       flex-wrap:wrap;
     }
-    .num-btn{
-      min-width:32px;
-      height:32px;
-      padding:0 8px;
-      border:1px solid var(--btnbd);
-      background:var(--btnbg);
-      border-radius:8px;
-      cursor:pointer;
-      color:#57606f;
-    }
+    .num-btn{ min-width:32px; height:32px; padding:0 10px; }
     .num-btn.active{
-      background:var(--muted2);
-      border-color:var(--muted2);
-      font-weight:650;
-      color:var(--ink);
+      background:rgba(255,255,255,0.28);
+      border-color:rgba(255,255,255,0.30);
+      font-weight:700;
     }
 
-    /* 隐藏源内容 */
     .source{ display:none; }
   </style>
 </head>
@@ -238,6 +205,7 @@
 
   <div class="numbers" id="numbers"></div>
 
+  <!-- 源内容（保持你原文原结构） -->
   <div class="source" id="source">
     <div class="title-area" id="titleArea">
       <h1>致我亲爱的妻子：管倍红</h1>
@@ -296,9 +264,7 @@
 
   <script>
     (function(){
-      // 按字数分页：觉得一页太长/太短就改这个数字
       const MAX_CHARS_PER_PAGE = 900;
-      // 设定相册每页显示几张照片
       const PHOTOS_PER_PAGE = 2;
 
       const reader = document.getElementById('reader');
@@ -310,8 +276,7 @@
       const titleArea = document.getElementById('titleArea');
       const mainPhoto = document.getElementById('mainPhoto');
       const letterContent = document.getElementById('letterContent');
-      
-      // 提取所有照片元素
+
       const photoGallery = document.getElementById('photoGallery');
       const galleryItems = Array.from(photoGallery.querySelectorAll('.gallery-item'));
 
@@ -322,7 +287,6 @@
         return t.length;
       }
 
-      // pages: cover + auto text pages + auto album pages
       const pages = [];
       pages.push({ type:'cover' });
 
@@ -348,7 +312,6 @@
       }
       if(cur.length) pages.push({ type:'text', nodes:cur });
 
-      // ✅ 自动将照片按指定数量切割分页
       for (let i = 0; i < galleryItems.length; i += PHOTOS_PER_PAGE) {
         const chunk = galleryItems.slice(i, i + PHOTOS_PER_PAGE);
         pages.push({ type: 'album-chunk', nodes: chunk });
@@ -364,7 +327,6 @@
           page.appendChild(titleArea.cloneNode(true));
           page.appendChild(mainPhoto.cloneNode(true));
         } else if(p.type === 'album-chunk'){
-          // 重新构造相册页的结构
           const divider = document.createElement('div');
           divider.className = 'album-divider';
           divider.textContent = '光影回忆';
@@ -441,5 +403,4 @@
     })();
   </script>
 </body>
-
 </html>
