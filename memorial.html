@@ -25,28 +25,39 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-
-      background-image:url("/mountain.jpg");
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-
       position:relative;
       line-height:1.9;
       color:var(--text);
     }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background-image:image-set(
+        url("/mountain-1920.jpg") 1x,
+        url("/mountain-3840.jpg") 2x
+      );
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      transform:translateZ(0);
+      will-change:transform;
+    }
+
     /* 怀念：更深、更冷 */
     body::before{
       content:"";
       position:fixed;
       inset:0;
+      z-index:-1;
       background:linear-gradient(
         to bottom,
         rgba(10,18,28,0.22) 0%,
         rgba(10,18,28,0.30) 55%,
         rgba(10,18,28,0.40) 100%
       );
-      z-index:-1;
     }
 
     .nav{
@@ -83,7 +94,6 @@
     .brand-logo{ width:24px; height:24px; display:block; }
     .brand-name{ font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,0.92); }
 
-    /* 阅读卡片 */
     .reader,
     .controls,
     .numbers{ width:100%; max-width:760px; box-sizing:border-box; }
@@ -97,7 +107,7 @@
       box-shadow:0 18px 55px rgba(0,0,0,0.22);
     }
 
-    .page{ display:none; min-height:60vh; padding:0; }
+    .page{ display:none; min-height:60vh; }
     .page.active{ display:block; }
 
     .title-area{ text-align:center; margin-bottom:18px; }
@@ -186,10 +196,9 @@
 </head>
 
 <body>
-
   <div class="nav">
     <a href="home.html" class="back-btn">← 返回我的家</a>
-    <div class="brand">
+    <div class="brand" title="🐷之家">
       <img src="/favicon.svg" class="brand-logo" alt="logo" onerror="this.style.display='none'">
       <div class="brand-name">🐷之家</div>
     </div>
@@ -205,7 +214,6 @@
 
   <div class="numbers" id="numbers"></div>
 
-  <!-- 源内容（保持你原文原结构） -->
   <div class="source" id="source">
     <div class="title-area" id="titleArea">
       <h1>致我亲爱的妻子：管倍红</h1>
@@ -279,7 +287,6 @@
 
       const photoGallery = document.getElementById('photoGallery');
       const galleryItems = Array.from(photoGallery.querySelectorAll('.gallery-item'));
-
       const blocks = Array.from(letterContent.children);
 
       function blockTextLen(el){
@@ -300,7 +307,6 @@
           pages.push({ type:'text', nodes:[el] });
           continue;
         }
-
         if(curLen + len > MAX_CHARS_PER_PAGE && cur.length){
           pages.push({ type:'text', nodes:cur });
           cur = [el];
@@ -318,7 +324,6 @@
       }
 
       const pageEls = [];
-
       pages.forEach((p, idx)=>{
         const page = document.createElement('div');
         page.className = 'page' + (idx === 0 ? ' active' : '');
@@ -352,10 +357,8 @@
 
       function render(){
         pageEls.forEach((el, i)=> el.classList.toggle('active', i === current));
-
         prevBtn.disabled = (current === 0);
         nextBtn.disabled = (current === pageEls.length - 1);
-
         info.textContent = `第 ${current + 1} 页 / 共 ${pageEls.length} 页`;
 
         numbers.innerHTML = '';
@@ -394,7 +397,6 @@
         const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
         const typing = (tag === 'input' || tag === 'textarea' || e.target.isContentEditable);
         if(typing) return;
-
         if(e.key === 'ArrowRight') next();
         if(e.key === 'ArrowLeft') prev();
       });

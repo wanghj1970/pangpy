@@ -18,27 +18,38 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-
-      background-image:url("/mountain.jpg");
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-
       position:relative;
       color:#111827;
     }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background-image:image-set(
+        url("/mountain-1920.jpg") 1x,
+        url("/mountain-3840.jpg") 2x
+      );
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      transform:translateZ(0);
+      will-change:transform;
+    }
+
     /* 温暖：偏棕色遮罩 */
     body::before{
       content:"";
       position:fixed;
       inset:0;
+      z-index:-1;
       background:linear-gradient(
         to bottom,
         rgba(40,30,20,0.10) 0%,
         rgba(40,30,20,0.16) 55%,
         rgba(40,30,20,0.22) 100%
       );
-      z-index:-1;
     }
 
     .nav{ width:100%; max-width:900px; margin-bottom:20px; }
@@ -49,7 +60,6 @@
       border-radius:20px;
       display:inline-block;
       transition:.2s;
-
       color:rgba(255,255,255,0.92);
       background:rgba(255,255,255,0.14);
       border:1px solid rgba(255,255,255,0.22);
@@ -76,12 +86,15 @@
       color:inherit;
       transition:.3s;
       box-sizing:border-box;
-
       background:rgba(255,255,255,0.82);
       backdrop-filter:blur(10px);
       box-shadow:0 14px 45px rgba(0,0,0,0.14);
     }
-    .memorial-banner:hover{ transform:translateY(-3px); box-shadow:0 22px 60px rgba(0,0,0,0.18); border-left-color:rgba(201,79,109,0.7); }
+    .memorial-banner:hover{
+      transform:translateY(-3px);
+      box-shadow:0 22px 60px rgba(0,0,0,0.18);
+      border-left-color:rgba(201,79,109,0.7);
+    }
     .memorial-text h3{ margin:0 0 8px; color:#111827; font-size:1.3em; font-weight:700; }
     .memorial-text p{ margin:0; color:#566273; font-size:.95em; }
     .memorial-icon{ font-size:2em; color:#c94f6d; opacity:.85; }
@@ -111,12 +124,14 @@
       border-radius:12px;
       overflow:hidden;
       transition:.3s;
-
       background:rgba(255,255,255,0.82);
       backdrop-filter:blur(10px);
       box-shadow:0 14px 45px rgba(0,0,0,0.14);
     }
-    .photo-card:hover{ transform:translateY(-5px); box-shadow:0 22px 60px rgba(0,0,0,0.18); }
+    .photo-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 22px 60px rgba(0,0,0,0.18);
+    }
 
     .photo-img{
       width:100%;
@@ -131,9 +146,37 @@
     .photo-info{ padding:15px; }
     .photo-info p{ margin:0; color:#374151; font-size:.95em; line-height:1.5; }
 
-    .modal{ display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); backdrop-filter:blur(5px); }
-    .modal-content{ margin:auto; display:block; max-width:90%; max-height:90vh; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:10px; box-shadow:0 5px 25px rgba(0,0,0,0.5); object-fit:contain; }
-    .close-btn{ position:absolute; top:20px; right:35px; color:#f1f1f1; font-size:40px; font-weight:bold; cursor:pointer; transition:.3s; z-index:1001; }
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:1000;
+      left:0; top:0;
+      width:100%; height:100%;
+      background-color:rgba(0,0,0,0.85);
+      backdrop-filter:blur(5px);
+    }
+    .modal-content{
+      margin:auto;
+      display:block;
+      max-width:90%;
+      max-height:90vh;
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      border-radius:10px;
+      box-shadow:0 5px 25px rgba(0,0,0,0.5);
+      object-fit:contain;
+    }
+    .close-btn{
+      position:absolute;
+      top:20px; right:35px;
+      color:#f1f1f1;
+      font-size:40px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:.3s;
+      z-index:1001;
+    }
     .close-btn:hover{ color:#f8c6cf; }
   </style>
 </head>
