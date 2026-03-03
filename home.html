@@ -19,7 +19,7 @@
         .header p { color: #636e72; font-size: 1.1em; }
         .section-title { width: 100%; max-width: 900px; margin: 40px 0 20px; border-bottom: 2px dashed #dcdde1; padding-bottom: 10px; color: #2d3436; display: flex; align-items: center; gap: 10px; font-weight: normal; }
 
-        /* --- 新增：思念专属入口卡片 --- */
+        /* 思念专属入口卡片 */
         .memorial-banner {
             width: 100%;
             max-width: 900px;
@@ -41,22 +41,36 @@
         .memorial-text h3 { margin: 0 0 8px 0; color: #2d3436; font-size: 1.3em; font-weight: 500; }
         .memorial-text p { margin: 0; color: #8395a7; font-size: 0.95em; }
         .memorial-icon { font-size: 2em; color: #b2bec3; opacity: 0.8; }
-        /* ------------------------------ */
 
+        /* 照片墙排版 */
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; width: 100%; max-width: 900px; }
         .photo-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
         .photo-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .photo-img { width: 100%; height: 200px; object-fit: cover; background-color: #ffeaa7; display: flex; align-items: center; justify-content: center; font-size: 2em; color: #b2bec3; }
         .photo-info { padding: 15px; }
-        .photo-info p { margin: 0; color: #636e72; font-size: 0.95em; }
+        .photo-info p { margin: 0; color: #636e72; font-size: 0.95em; line-height: 1.5; }
 
-        .timeline { width: 100%; max-width: 900px; position: relative; padding-left: 20px; }
-        .timeline::before { content: ''; position: absolute; left: 0; top: 5px; bottom: 0; width: 4px; background: #dfe6e9; border-radius: 2px; }
-        .log-entry { position: relative; margin-bottom: 30px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .log-entry::before { content: ''; position: absolute; left: -26px; top: 20px; width: 16px; height: 16px; background: #74b9ff; border-radius: 50%; border: 3px solid #fdfbfb; }
-        .log-date { font-size: 0.85em; color: #0984e3; font-weight: bold; margin-bottom: 8px; display: block; letter-spacing: 0.5px; }
-        .log-content { margin: 0; color: #2d3436; line-height: 1.6; }
-        .log-weather { float: right; font-size: 1.2em; }
+        /* 照片样式：强制高度统一，多余裁切，并增加鼠标手型提示可以点击 */
+        .photo-img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            cursor: pointer; 
+            transition: opacity 0.3s;
+            background-color: #ffeaa7; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 2em; 
+            color: #b2bec3;
+        }
+        .photo-img:hover { opacity: 0.85; }
+
+        /* --- 点击放大的弹出层样式 --- */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(5px); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 90vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); object-fit: contain; }
+        .close-btn { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 1001; }
+        .close-btn:hover { color: #ff7675; }
+
     </style>
 </head>
 <body>
@@ -73,47 +87,59 @@
     <a href="memorial.html" class="memorial-banner">
         <div class="memorial-text">
             <h3>🕊️ 寄往天堂的信</h3>
-            <p>永远怀念你 · 9月22日</p>
+            <p>倍红· 我们永远怀念你</p>
         </div>
         <div class="memorial-icon">🤍</div>
     </a>
 
     <h2 class="section-title">📸 高光时刻</h2>
     <div class="photo-grid">
-	    <div class="photo-card">
-            <img src="images/199602.jpg" class="photo-img" alt="结婚典礼" onerror="this.style.display='none'">
+        <div class="photo-card">
+            <img src="images/199602.jpg" class="photo-img" alt="结婚典礼" onerror="this.style.display='none'" onclick="openModal(this.src)">
             <div class="photo-info">
                 <p>1996年9月8号，我们结婚了，开启了幸福生活！</p>
             </div>
         </div>
         <div class="photo-card">
-            <img src="images/202403.jpg" class="photo-img" alt="女儿上海大学毕业典礼" onerror="this.style.display='none'">
+            <img src="images/202403.jpg" class="photo-img" alt="女儿上海大学毕业典礼" onerror="this.style.display='none'" onclick="openModal(this.src)">
             <div class="photo-info">
                 <p>2024年6月22号，女儿上海大学毕业典礼。为你感到无比骄傲！</p>
             </div>
         </div>
         <div class="photo-card">
-            <img src="images/202501.jpg" class="photo-img" alt="女儿康奈尔大学硕士毕业典礼" onerror="this.style.display='none'">
+            <img src="images/202501.jpg" class="photo-img" alt="女儿康奈尔大学硕士毕业典礼" onerror="this.style.display='none'" onclick="openModal(this.src)">
             <div class="photo-info">
                 <p>2025年5月25日，女儿康奈尔大学硕士毕业典礼。开启人生新征程！</p>
             </div>
         </div>
-		<div class="photo-card">
-            <img src="images/XS115599.jpg" class="photo-img" alt="女儿康奈尔大学学院大楼" onerror="this.style.display='none'">
+        <div class="photo-card">
+            <img src="images/XS115599.jpg" class="photo-img" alt="女儿康奈尔大学学院大楼" onerror="this.style.display='none'" onclick="openModal(this.src)">
             <div class="photo-info">
                 <p>2025年5月25日，女儿康奈尔大学学院大楼前毕业照。</p>
             </div>
         </div>
     </div>
 
-    <h2 class="section-title">📝 琐碎日常</h2>
-    <div class="timeline">
-        <div class="log-entry">
-            <span class="log-weather">☁️</span>
-            <span class="log-date">刚刚</span>
-            <p class="log-content">在这里为你留了一个最安静的角落。思念有声，岁月无恙。</p>
-        </div>
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="fullImage">
     </div>
+
+    <script>
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("fullImage");
+
+        // 打开全图
+        function openModal(imageSrc) {
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+
+        // 关闭全图
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
