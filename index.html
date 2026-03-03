@@ -10,66 +10,96 @@
     <link rel="apple-touch-icon" href="/favicon.svg">
 
     <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; 
-            background-color: #f6f7f9; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 10vh 20px; 
-            margin: 0; 
-            color: #333; 
-        }
-
-        .header { 
-            text-align: center; 
-            margin-bottom: 60px; 
-        }
-
-        .header h1 { 
-            font-weight: 500;
-            font-size: 2.4em; 
-            letter-spacing: 2px;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
             margin: 0;
-            color: #2d3436;
+            padding: 10vh 20px;
+            min-height: 100vh;
+
+            /* 背景图 */
+            background-image: url("mountain.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            /* 叠加暗色滤镜提高文字可读性 */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .header p { 
-            color: #8a8f98; 
-            font-size: 1em; 
+        /* 半透明遮罩层 */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: -1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-weight: 600;
+            font-size: 2.6em;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 1.1em;
             margin-top: 12px;
+            opacity: 0.9;
         }
 
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            width: 100%; 
-            max-width: 600px; 
-            margin: 0 auto;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 700px;
         }
 
-        .card { 
-            background: white; 
-            padding: 30px 25px; 
-            border-radius: 18px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            text-align: center; 
-            text-decoration: none; 
-            color: inherit; 
-            transition: all 0.3s ease; 
-            border-top: 4px solid transparent; 
-            box-sizing: border-box;
+        .card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            padding: 30px 25px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .card:hover { 
-            transform: translateY(-6px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+        .card:hover {
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.25);
         }
 
-        .card.ha:hover { border-top-color: #03a9f4; }
-        .card.guac:hover { border-top-color: #4caf50; }
-        .card.myhome:hover { border-top-color: #ff9800; }
+        .card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+
+        .card p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .icon {
+            font-size: 2.6em;
+            margin-bottom: 15px;
+            display: block;
+        }
 
         @media (min-width: 620px) {
             .card.myhome {
@@ -77,26 +107,6 @@
                 justify-self: center;
                 width: 280px;
             }
-        }
-
-        .card h3 { 
-            margin: 0 0 12px 0; 
-            font-size: 1.3em; 
-            font-weight: 500;
-            color: #2d3436; 
-        }
-
-        .card p { 
-            color: #8a8f98; 
-            font-size: 0.9em; 
-            line-height: 1.6; 
-            margin: 0; 
-        }
-
-        .icon { 
-            font-size: 2.6em; 
-            margin-bottom: 15px; 
-            display: block; 
         }
     </style>
 </head>
@@ -116,13 +126,13 @@
             <p>家庭相册与生活记录<br>进入私密空间</p>
         </a>
 
-        <a href="ha.html" class="card ha">
+        <a href="ha.html" class="card">
             <span class="icon">🏠</span>
             <h3>Home Assistant</h3>
             <p>智能家居控制中枢</p>
         </a>
 
-        <a href="https://guac.pangpy.com" class="card guac" target="_blank">
+        <a href="https://guac.pangpy.com" class="card" target="_blank">
             <span class="icon">🖥️</span>
             <h3>Windows RDP</h3>
             <p>Web 远程桌面连接</p>
