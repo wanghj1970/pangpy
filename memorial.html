@@ -10,188 +10,225 @@
   <title>永远怀念 - 寄往天堂的信</title>
 
   <style>
-    :root{
-      --text:#3f4550;
-      --muted:#7b8796;
-      --ink:#1f2937;
-      --soft:#eef1f4;
+    /* =========================================
+       1. 全局基准：原生高级字体 & 弹性布局
+       ========================================= */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      margin: 0;
+      padding: 5vh 20px 8vh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      line-height: 1.9;
+      color: #fff; /* 全局纯白文字 */
     }
 
-    body{
-      font-family:'Helvetica Neue','PingFang SC','Microsoft YaHei',sans-serif;
-      margin:0;
-      padding:5vh 20px 8vh;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      position:relative;
-      line-height:1.9;
-      color:var(--text);
-    }
-
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      background-image:image-set(
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: image-set(
         url("/mountain-1920.jpg") 1x,
         url("/mountain-3840.jpg") 2x
       );
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      transform:translateZ(0);
-      will-change:transform;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translateZ(0);
+      will-change: transform;
     }
 
-    /* 怀念：更深、更冷 */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      background:linear-gradient(
+    /* 统一的清透滤镜 */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
         to bottom,
-        rgba(10,18,28,0.22) 0%,
-        rgba(10,18,28,0.30) 55%,
-        rgba(10,18,28,0.40) 100%
+        rgba(0,0,0,0.05) 0%,
+        rgba(0,0,0,0.10) 55%,
+        rgba(0,0,0,0.16) 100%
       );
     }
 
-    .nav{
-      width:100%;
-      max-width:760px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
+    /* =========================================
+       2. 顶部导航
+       ========================================= */
+    .nav {
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
-    .back-btn{
-      text-decoration:none;
-      font-size:.95em;
-      padding:8px 12px;
-      border-radius:10px;
-      color:rgba(255,255,255,0.92);
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.22);
-      backdrop-filter:blur(10px);
-      box-shadow:0 10px 25px rgba(0,0,0,0.16);
-    }
-    .back-btn:hover{ background:rgba(255,255,255,0.18); }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      user-select:none;
-      opacity:.98;
-      color:#fff;
-    }
-    .brand-logo{ width:24px; height:24px; display:block; }
-    .brand-name{ font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,0.92); }
-
-    .reader,
-    .controls,
-    .numbers{ width:100%; max-width:760px; box-sizing:border-box; }
-
-    .reader{
-      background:rgba(255,255,255,0.86);
-      backdrop-filter:blur(12px);
-      border:1px solid rgba(255,255,255,0.28);
-      border-radius:18px;
-      padding:26px 22px;
-      box-shadow:0 18px 55px rgba(0,0,0,0.22);
-    }
-
-    .page{ display:none; min-height:60vh; }
-    .page.active{ display:block; }
-
-    .title-area{ text-align:center; margin-bottom:18px; }
-    .title-area h1{ font-weight:500; letter-spacing:2px; margin:0 0 10px; color:var(--ink); }
-    .date{ color:var(--muted); font-size:.9em; letter-spacing:1px; }
-
-    .main-photo{
-      width:100%;
-      border-radius:10px;
-      margin:22px 0;
-      display:block;
-      background:#e9edf1;
-      min-height:200px;
-      object-fit:cover;
-    }
-
-    .content{ font-size:1.05em; color:#4b5563; text-align:justify; }
-    .content p{ margin:0 0 22px; text-indent:2em; }
-
-    .quote{
-      margin:30px 0;
-      padding:18px;
-      background:var(--soft);
-      font-style:italic;
-      text-indent:0;
-      color:#6b7280;
-      border-left:3px solid rgba(201,79,109,0.55);
-      border-radius:10px;
-    }
-
-    .album-divider{ text-align:center; margin:46px 0 26px; color:#9aa3af; letter-spacing:4px; }
-    .photo-gallery{ display:flex; flex-direction:column; gap:26px; }
-    .photo-gallery img{
-      width:100%;
-      border-radius:10px;
-      display:block;
-      background:#e9edf1;
-      min-height:160px;
-      object-fit:cover;
-    }
-    .gallery-caption{ margin-top:12px; color:#7b8796; font-size:.92em; line-height:1.65; max-width:85%; }
-
-    .controls{
-      margin-top:18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .page-info{
-      color:rgba(255,255,255,0.88);
-      font-size:.92em;
-      white-space:nowrap;
-      text-shadow:0 10px 30px rgba(0,0,0,0.25);
-    }
-    button{
-      padding:8px 14px;
-      border:1px solid rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.12);
-      color:rgba(255,255,255,0.92);
-      border-radius:10px;
-      cursor:pointer;
-      transition:.2s;
+    
+    .back-btn {
+      text-decoration: none;
+      font-size: 0.95em;
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.14);
+      transition: all .2s;
     }
-    button:hover{ background:rgba(255,255,255,0.18); }
-    button:disabled{ opacity:.45; cursor:not-allowed; }
+    .back-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.18); }
 
-    .numbers{
-      margin-top:12px;
-      display:flex;
-      justify-content:center;
-      gap:6px;
-      flex-wrap:wrap;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      opacity: .98;
     }
-    .num-btn{ min-width:32px; height:32px; padding:0 10px; }
-    .num-btn.active{
-      background:rgba(255,255,255,0.28);
-      border-color:rgba(255,255,255,0.30);
-      font-weight:700;
+    .brand-logo { width: 24px; height: 24px; display: block; }
+    .brand-name { font-weight: 600; letter-spacing: .5px; text-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+    /* =========================================
+       3. 阅读器卡片（浅色透亮玻璃质感）
+       ========================================= */
+    .reader, .controls, .numbers { 
+      width: 100%; 
+      max-width: 760px; 
+      box-sizing: border-box; 
     }
 
-    .source{ display:none; }
+    .reader {
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 18px;
+      padding: 34px 28px;
+      box-shadow: 0 14px 45px rgba(0,0,0,0.14);
+      /* 添加手势操作友好的特性 */
+      touch-action: pan-y; 
+      user-select: none; /* 防止滑动时选中文本 */
+    }
+
+    .page { display: none; min-height: 60vh; animation: fadeIn 0.4s ease; }
+    .page.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =========================================
+       4. 信件内容排版
+       ========================================= */
+    .title-area { text-align: center; margin-bottom: 24px; }
+    .title-area h1 { 
+      font-weight: 600; 
+      font-size: 1.8em;
+      letter-spacing: 2px; 
+      margin: 0 0 10px; 
+      text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .date { color: rgba(255,255,255,0.85); font-size: .95em; letter-spacing: 1px; }
+
+    .main-photo {
+      width: 100%;
+      border-radius: 12px;
+      margin: 22px 0;
+      display: block;
+      background: rgba(0,0,0,0.1);
+      min-height: 200px;
+      object-fit: cover;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .content { font-size: 1.05em; color: rgba(255,255,255,0.95); text-align: justify; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    .content p { margin: 0 0 22px; text-indent: 2em; }
+
+    .quote {
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(0,0,0,0.15); /* 深色半透背景，突出引用内容 */
+      font-style: italic;
+      text-indent: 0;
+      color: rgba(255,255,255,0.9);
+      border-left: 4px solid #ff7675; /* 珊瑚红，呼应主页的思念图标 */
+      border-radius: 10px;
+      text-shadow: none;
+    }
+
+    /* =========================================
+       5. 相册排版
+       ========================================= */
+    .album-divider { text-align: center; margin: 46px 0 26px; color: rgba(255,255,255,0.8); letter-spacing: 4px; }
+    .photo-gallery { display: flex; flex-direction: column; gap: 26px; }
+    .photo-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      background: rgba(0,0,0,0.1);
+      min-height: 160px;
+      object-fit: cover;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .gallery-caption { margin-top: 12px; color: rgba(255,255,255,0.85); font-size: .95em; line-height: 1.65; max-width: 90%; }
+
+    /* =========================================
+       6. 控制面板与翻页按钮
+       ========================================= */
+    .controls {
+      margin-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .page-info {
+      color: rgba(255,255,255,0.88);
+      font-size: .95em;
+      white-space: nowrap;
+      text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    button {
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.92);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .2s;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-family: inherit;
+    }
+    button:hover:not(:disabled) { background: rgba(255,255,255,0.22); }
+    button:disabled { opacity: .4; cursor: not-allowed; border-color: transparent; }
+
+    .numbers {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .num-btn { min-width: 36px; height: 36px; padding: 0 10px; border-radius: 10px; }
+    .num-btn.active {
+      background: rgba(255,255,255,0.35);
+      border-color: rgba(255,255,255,0.4);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .source { display: none; }
   </style>
 </head>
 
@@ -334,6 +371,7 @@
         return t.length;
       }
 
+      // --- 分页逻辑构建 ---
       const pages = [];
       pages.push({ type:'cover' });
 
@@ -395,6 +433,7 @@
 
       let current = 0;
 
+      // --- 渲染页面与状态 ---
       function render(){
         pageEls.forEach((el, i)=> el.classList.toggle('active', i === current));
         prevBtn.disabled = (current === 0);
@@ -430,6 +469,7 @@
         }
       }
 
+      // --- 按钮与键盘翻页事件 ---
       prevBtn.addEventListener('click', prev);
       nextBtn.addEventListener('click', next);
 
@@ -440,6 +480,31 @@
         if(e.key === 'ArrowRight') next();
         if(e.key === 'ArrowLeft') prev();
       });
+
+      // --- 核心魔法：手机端左右滑动翻页触控逻辑 ---
+      let touchstartX = 0;
+      let touchendX = 0;
+      const swipeThreshold = 50; // 划动距离超过 50px 触发翻页
+
+      reader.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      reader.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        if (touchendX < touchstartX - swipeThreshold) {
+          // 向左滑，进入下一页
+          next();
+        }
+        if (touchendX > touchstartX + swipeThreshold) {
+          // 向右滑，返回上一页
+          prev();
+        }
+      }
 
       render();
     })();
