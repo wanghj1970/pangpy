@@ -10,8 +10,9 @@
   <title>HA Studio - 🐷之家</title>
 
   <style>
+    /* 统一系统字体，全局白色文字 */
     body{
-      font-family:'Segoe UI',sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
       margin:0;
       padding:7vh 20px 10vh;
       min-height:100vh;
@@ -19,7 +20,7 @@
       flex-direction:column;
       align-items:center;
       position:relative;
-      color:#2c3e50;
+      color:#fff; 
     }
 
     body::after{
@@ -38,6 +39,7 @@
       will-change:transform;
     }
 
+    /* 统一的清透滤镜，替代原来的深色遮罩 */
     body::before{
       content:"";
       position:fixed;
@@ -45,9 +47,9 @@
       z-index:-1;
       background:linear-gradient(
         to bottom,
-        rgba(10,18,28,0.10) 0%,
-        rgba(10,18,28,0.14) 55%,
-        rgba(10,18,28,0.18) 100%
+        rgba(0,0,0,0.05) 0%,
+        rgba(0,0,0,0.10) 55%,
+        rgba(0,0,0,0.16) 100%
       );
     }
 
@@ -61,38 +63,57 @@
       justify-content:space-between;
       flex-wrap:wrap;
     }
+    
     .btn{
       text-decoration:none;
+      font-size:0.95em;
       padding:8px 14px;
       border-radius:10px;
       display:inline-block;
       transition:.2s;
       white-space:nowrap;
-
       color:rgba(255,255,255,0.92);
       background:rgba(255,255,255,0.12);
       border:1px solid rgba(255,255,255,0.22);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       box-shadow:0 10px 25px rgba(0,0,0,0.14);
     }
     .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.18);}
 
     .brand{display:flex;align-items:center;gap:10px;user-select:none;}
     .brand-logo{width:26px;height:26px;display:block;opacity:.95;}
-    .brand-name{font-weight:700;letter-spacing:.5px;color:rgba(255,255,255,0.92);}
+    .brand-name{font-weight:700;letter-spacing:.5px;color:rgba(255,255,255,0.92);text-shadow:0 5px 15px rgba(0,0,0,0.2);}
 
     .header{width:100%;max-width:1020px;margin:8px 0 18px;color:#fff;}
-    .header h1{margin:0 0 6px;font-size:2em;text-shadow:0 10px 30px rgba(0,0,0,0.20);}
-    .header p{margin:0;opacity:.92;line-height:1.6;text-shadow:0 10px 30px rgba(0,0,0,0.18);}
+    
+    /* === 完美对齐的标题魔法 === */
+    .header h1{
+      margin:0 0 6px;
+      font-size:2.4em;
+      font-weight:600;
+      letter-spacing:1px;
+      text-shadow:0 10px 30px rgba(0,0,0,0.20);
+    }
+    .header h1 svg {
+      width: 1.15em;
+      height: 1.15em;
+      vertical-align: middle;
+      position: relative;
+      top: -0.08em;
+      margin-right: 6px;
+    }
+
+    .header p{margin:0;opacity:.92;line-height:1.6;font-size:1.1em;text-shadow:0 10px 30px rgba(0,0,0,0.18);}
 
     .section{width:100%;max-width:1020px;margin:26px 0 44px;}
     .section h2{
       margin:0 0 14px;
       padding-left:10px;
-      border-left:4px solid #03a9f4;
+      border-left:4px solid #00b894; /* 呼应薄荷绿图标 */
       font-size:1.2em;
-      font-weight:650;
-      color:rgba(255,255,255,0.92);
+      font-weight:600;
+      color:rgba(255,255,255,0.95);
       text-shadow:0 10px 30px rgba(0,0,0,0.18);
     }
 
@@ -102,19 +123,25 @@
       gap:18px;
     }
 
+    /* 统一的浅色透亮玻璃卡片 */
     .card{
-      background:rgba(255,255,255,0.86);
-      backdrop-filter: blur(10px);
-      border:1px solid rgba(255,255,255,0.28);
+      background:rgba(255,255,255,0.22);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border:1px solid rgba(255,255,255,0.25);
       border-radius:14px;
       overflow:hidden;
       box-shadow:0 14px 45px rgba(0,0,0,0.14);
-      transition:.2s;
+      transition:all .3s ease;
+      color:#fff;
     }
-    .card:hover{transform:translateY(-3px);box-shadow:0 22px 60px rgba(0,0,0,0.18);}
+    .card:hover{
+        transform:translateY(-6px);
+        background:rgba(255,255,255,0.28);
+    }
 
     .img-wrap{
-      background:#eef2f4;
+      background:rgba(0,0,0,0.1); /* 图片底色改为极其微弱的暗色，融合得更好 */
       display:flex;
       align-items:center;
       justify-content:center;
@@ -130,16 +157,17 @@
 
     .meta{
       padding:10px 14px 14px;
-      border-top:1px solid rgba(0,0,0,0.04);
-      color:#6b7280;
+      border-top:1px solid rgba(255,255,255,0.15); /* 分割线变浅 */
+      color:rgba(255,255,255,0.85); /* 描述文字半透明 */
       font-size:.92em;
       line-height:1.5;
     }
-    .meta b{color:#111827;font-weight:650;}
+    .meta b{color:#ffffff;font-weight:600;}
 
     .card.fullscreen{cursor:zoom-in;}
     .card:not(.fullscreen){cursor:default;}
 
+    /* 灯箱效果保持不变（适合看图） */
     .lb{
       position:fixed; inset:0;
       background:rgba(0,0,0,0.86);
@@ -184,9 +212,11 @@
   </div>
 
   <div class="header">
-    <h1><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#00b894">
-        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-	</svg> HA Studio</h1>
+    <h1>
+        <svg viewBox="0 0 24 24" fill="#00b894">
+            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+        </svg><span>HA Studio</span>
+    </h1>
     <p>小图按原比例展示；仅「概览」支持点击全屏（ESC 可关闭）</p>
   </div>
 
