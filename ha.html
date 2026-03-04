@@ -10,106 +10,143 @@
   <title>Home Assistant - 🐷之家</title>
 
   <style>
-    body{
-      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-      margin:0;
-      padding:8vh 20px 10vh;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      position:relative;
-      color:#2c3e50;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 8vh 20px 10vh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      color: #ffffff; /* 整体字体颜色变白 */
     }
 
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      background-image:image-set(
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: image-set(
         url("/mountain-1920.jpg") 1x,
         url("/mountain-3840.jpg") 2x
       );
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      transform:translateZ(0);
-      will-change:transform;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translateZ(0);
+      will-change: transform;
     }
 
     /* 科技：更轻、更冷 */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      background:linear-gradient(
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
         to bottom,
-        rgba(10,18,28,0.10) 0%,
-        rgba(10,18,28,0.14) 55%,
-        rgba(10,18,28,0.18) 100%
+        rgba(10, 18, 28, 0.10) 0%,
+        rgba(10, 18, 28, 0.14) 55%,
+        rgba(10, 18, 28, 0.18) 100%
       );
     }
 
-    .nav{width:100%;max-width:900px;margin-bottom:24px;}
-    .back-btn{
-      text-decoration:none;
-      font-size:0.95em;
-      padding:8px 14px;
-      border-radius:10px;
-      display:inline-block;
-      transition:all .2s;
-
-      color:rgba(255,255,255,0.92);
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.22);
-      backdrop-filter:blur(10px);
-      box-shadow:0 10px 25px rgba(0,0,0,0.14);
-    }
-    .back-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.18);}
-
-    .header{text-align:center;margin:10px 0 36px;color:#fff;}
-    .header h1{margin:0 0 8px;font-size:2.1em;font-weight:700;letter-spacing:.5px;text-shadow:0 10px 30px rgba(0,0,0,0.20);}
-    .header p{margin:0;opacity:.92;text-shadow:0 10px 30px rgba(0,0,0,0.18);}
-
-    .grid{
-      width:100%;
-      max-width:900px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:22px;
-    }
-    .card{
-      background:rgba(255,255,255,0.86);
+    .nav { width: 100%; max-width: 900px; margin-bottom: 24px; }
+    .back-btn {
+      text-decoration: none;
+      font-size: 0.95em;
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: inline-block;
+      transition: all .2s;
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(10px);
-      border:1px solid rgba(255,255,255,0.28);
-      padding:34px 26px;
-      border-radius:16px;
-      box-shadow:0 14px 45px rgba(0,0,0,0.14);
-      text-decoration:none;
-      color:inherit;
-      transition:all .25s ease;
-      border-top:4px solid transparent;
-      text-align:center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
     }
-    .card:hover{transform:translateY(-7px);box-shadow:0 22px 60px rgba(0,0,0,0.18);}
-    .icon{font-size:3em;display:block;margin-bottom:12px;}
-    .card h3{margin:0 0 10px;font-size:1.35em;}
-    .card p{margin:0;color:#556070;line-height:1.55;font-size:.98em;}
+    .back-btn:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.18); }
 
-    .card.plc:hover{border-top-color:#03a9f4;}
-    .card.studio:hover{border-top-color:#ff9800;}
+    .header { text-align: center; margin: 10px 0 36px; color: #fff; }
+    
+    /* 核心魔法 1：完美的标题对齐 */
+    .header h1 { 
+        margin: 0 0 8px; 
+        font-size: 2.2em; 
+        font-weight: 700; 
+        letter-spacing: .5px; 
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+        display: flex; /* 开启弹性盒子 */
+        align-items: center; /* 垂直绝对居中 */
+        justify-content: center; /* 水平绝对居中 */
+        gap: 12px; /* 图标和文字的间距 */
+    }
+    .header h1 svg {
+        width: 1.1em; /* 稍微放大图标，让它和全大写字母高度一致 */
+        height: 1.1em;
+        display: block;
+    }
 
-    .note{
-      width:100%;
-      max-width:900px;
-      margin-top:22px;
-      font-size:.92em;
-      line-height:1.6;
-      text-align:center;
-      color:rgba(255,255,255,0.85);
-      text-shadow:0 10px 30px rgba(0,0,0,0.18);
+    .header p { margin: 0; opacity: .92; text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); }
+
+    .grid {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    /* 核心魔法 2：深色高级毛玻璃特效 */
+    .card {
+        background: rgba(0, 0, 0, 0.35); /* 半透明黑色底色 */
+        backdrop-filter: blur(12px); /* 12px 的背景模糊 */
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.15); /* 玻璃边缘高光 */
+        padding: 34px 26px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* 深邃阴影 */
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 悬浮时的动态玻璃反光效果 */
+    .card:hover {
+        transform: translateY(-5px);
+        background: rgba(0, 0, 0, 0.45);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .icon { font-size: 3.2em; display: block; margin-bottom: 15px; }
+    
+    .card h3 { 
+        color: #ffffff; /* 确保标题是纯白 */
+        margin: 0 0 10px; 
+        font-size: 1.35em; 
+    }
+    
+    .card p { 
+        color: rgba(255, 255, 255, 0.75); /* 确保副标题是半透明白 */
+        margin: 0; 
+        line-height: 1.55; 
+        font-size: .98em; 
+    }
+
+    .note {
+      width: 100%;
+      max-width: 900px;
+      margin-top: 22px;
+      font-size: .92em;
+      line-height: 1.6;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
   </style>
 </head>
@@ -120,28 +157,35 @@
   </div>
 
   <div class="header">
-    <h1><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#18BCF2">
+    <h1>
+      <svg viewBox="0 0 24 24" fill="#18BCF2">
         <path d="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,13 14.8,14.3 13.5,14.9V17.4H10.5V14.9C9.2,14.3 8.2,13 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,9.2C10.7,9.2 9.7,10.2 9.7,11.5C9.7,12.8 10.7,13.8 12,13.8C13.3,13.8 14.3,12.8 14.3,11.5C14.3,10.2 13.3,9.2 12,9.2Z"/>
-	</svg> Home Assistant</h1>    
+	  </svg> 
+      Home Assistant
+    </h1>    
   </div>
 
   <div class="grid">
     <a class="card plc" href="https://ha.pangpy.com" target="_blank" rel="noopener">
-      <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#6c5ce7">
-                         <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
-	  </svg></span>
+      <span class="icon">
+        <svg viewBox="0 0 24 24" width="1em" height="1em" fill="#6c5ce7">
+          <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+	    </svg>
+      </span>
       <h3>PLC HA（实时系统）</h3>
       <p>实时状态 / 自动化 / 控制中心</p>
     </a>
 
     <a class="card studio" href="ha-studio.html">
-      <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#00b894">
-                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-	  </svg></span>
+      <span class="icon">
+        <svg viewBox="0 0 24 24" width="1em" height="1em" fill="#00b894">
+          <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+	    </svg>
+      </span>
       <h3>HA Studio（展厅）</h3>
       <p>概览 / 饮水机 / 供电 / 各房间 / 电表</p>
     </a>
   </div>
 
-  </body>
+</body>
 </html>
