@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,94 +11,140 @@
   <link rel="apple-touch-icon" href="/favicon.svg">
 
   <style>
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
-      margin:0;
-      padding:10vh 20px;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      position:relative;
-      color:#fff;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      margin: 0;
+      padding: 10vh 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      color: #fff;
     }
 
     /* ✅ 背景图：伪 fixed（更清晰） */
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      background-image:image-set(
-        url("/mountain-1920.jpg") 1x,
-        url("/mountain-3840.jpg") 2x
-      );
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      transform:translateZ(0);
-      will-change:transform;
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: image-set(url("/mountain-1920.jpg") 1x,
+          url("/mountain-3840.jpg") 2x);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translateZ(0);
+      will-change: transform;
     }
 
     /* ✅ 遮罩：入口最通透 */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.05) 0%,
-        rgba(0,0,0,0.10) 55%,
-        rgba(0,0,0,0.16) 100%
-      );
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.05) 0%,
+          rgba(0, 0, 0, 0.10) 55%,
+          rgba(0, 0, 0, 0.16) 100%);
     }
 
-    .header{ text-align:center; margin-bottom:60px; }
-    .header h1{
-      font-weight:600;
-      font-size:2.6em;
-      letter-spacing:3px;
-      margin:0;
-      text-shadow:0 10px 30px rgba(0,0,0,0.20);
-    }
-    .header p{
-      font-size:1.1em;
-      margin-top:12px;
-      opacity:.92;
-      text-shadow:0 10px 30px rgba(0,0,0,0.18);
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-      width:100%;
-      max-width:700px;
+    .header h1 {
+      font-weight: 600;
+      font-size: 2.6em;
+      letter-spacing: 3px;
+      margin: 0;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
     }
 
-    .card{
-      backdrop-filter:blur(12px);
-      background:rgba(255,255,255,0.22);
-      border-radius:18px;
-      padding:30px 25px;
-      text-align:center;
-      text-decoration:none;
-      color:#fff;
-      transition:all .3s ease;
-      border:1px solid rgba(255,255,255,0.25);
-    }
-    .card:hover{
-      transform:translateY(-6px);
-      background:rgba(255,255,255,0.28);
+    .header p {
+      font-size: 1.1em;
+      margin-top: 12px;
+      opacity: .92;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
-    .card h3{ margin:0 0 12px; font-size:1.3em; font-weight:500; }
-    .card p{ margin:0; font-size:.95em; line-height:1.6; opacity:.92; }
-    .icon{ font-size:2.6em; margin-bottom:15px; display:block; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 700px;
+    }
 
-    @media (min-width:620px){
-      .card.myhome{ grid-column:1/-1; justify-self:center; width:280px; }
+    .card {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 18px;
+      padding: 30px 25px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      transition: all .3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.3em;
+      font-weight: 500;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: .95em;
+      line-height: 1.6;
+      opacity: .92;
+    }
+
+    .icon {
+      font-size: 2.6em;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    @media (min-width:620px) {
+      .card.myhome {
+        grid-column: 1/-1;
+        justify-self: center;
+        width: 280px;
+      }
+    }
+
+    .about {
+      margin-top: 70px;
+      max-width: 760px;
+      line-height: 1.9;
+      font-size: 0.95rem;
+      text-align: left;
+      opacity: 0.9;
+
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 16px;
+      padding: 28px 30px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .about p {
+      margin: 0 0 16px;
+    }
+
+    .blessing {
+      margin-top: 10px;
+      font-weight: 500;
+      text-align: center;
     }
   </style>
 </head>
@@ -110,28 +157,58 @@
 
   <div class="grid">
     <a href="home.html" class="card myhome">
-	  <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#ff7675">
-                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-	  </svg></span>    
+      <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#ff7675">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg></span>
       <h3>我的家</h3>
       <p>家庭相册与生活记录</p>
     </a>
 
-    <a href="ha.html" class="card"> 
-	  <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#03A9F4">
-                         <path d="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,13 14.8,14.3 13.5,14.9V17.4H10.5V14.9C9.2,14.3 8.2,13 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,9.2C10.7,9.2 9.7,10.2 9.7,11.5C9.7,12.8 10.7,13.8 12,13.8C13.3,13.8 14.3,12.8 14.3,11.5C14.3,10.2 13.3,9.2 12,9.2Z"/>
-      </svg></span>	
+    <a href="ha.html" class="card">
+      <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#03A9F4">
+          <path
+            d="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,13 14.8,14.3 13.5,14.9V17.4H10.5V14.9C9.2,14.3 8.2,13 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,9.2C10.7,9.2 9.7,10.2 9.7,11.5C9.7,12.8 10.7,13.8 12,13.8C13.3,13.8 14.3,12.8 14.3,11.5C14.3,10.2 13.3,9.2 12,9.2Z" />
+        </svg></span>
       <h3>Home Assistant</h3>
       <p>智能家居控制中枢</p>
     </a>
 
-    <a href="https://guac.pangpy.com" class="card" target="_blank" rel="noopener">  
-	  <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#0078D7">
-						 <path d="M2.999 5.836l7.531-1.049v6.738H2.999V5.836zm8.688-1.256L21 3.001v8.524h-9.313V4.58zm-8.688 7.943h7.531v6.756l-7.531-1.05V12.523zm8.688 0H21v8.524l-9.313-1.562v-6.962z"/>
-	  </svg></span>
+    <a href="https://guac.pangpy.com" class="card" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="#0078D7">
+          <path
+            d="M2.999 5.836l7.531-1.049v6.738H2.999V5.836zm8.688-1.256L21 3.001v8.524h-9.313V4.58zm-8.688 7.943h7.531v6.756l-7.531-1.05V12.523zm8.688 0H21v8.524l-9.313-1.562v-6.962z" />
+        </svg></span>
       <h3>Windows RDP</h3>
       <p>Web 远程桌面连接</p>
     </a>
   </div>
+  <div class="about">
+    <p>
+      我太太特别喜欢猪的卡通形象。从“猪小屁”到各种木质、陶制的小猪摆件，
+      她总会想办法把它们带回家，或使用、或摆放在家里随时欣赏。
+    </p>
+
+    <p>
+      pangpy 是“胖屁”的谐音，是女儿小时候开玩笑给妈妈起的昵称。
+      女儿叫妈妈“小胖屁”，因为妈妈是家里最胖的；
+      妈妈则叫女儿“小肉肉”，因为女儿自幼偏瘦，她总希望女儿多长点肉。
+    </p>
+
+    <p>
+      我注册 <b>pangpy.com</b> 这个域名，
+      是为了纪念在 <b>2025 年 9 月离世的女儿的妈妈——也是我的太太</b>。
+    </p>
+
+    <p>
+      我用这个网站记录她的生平照片，
+      也记录我们一家人曾经拥有的那些幸福、温暖的时刻。
+    </p>
+
+    <p class="blessing">
+      愿她在天堂平安喜乐地陪伴着我们。<br>
+      愿她永生。阿门。
+    </p>
+  </div>
 </body>
+
 </html>
