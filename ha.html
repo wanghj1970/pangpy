@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,10 +29,8 @@
       position: fixed;
       inset: 0;
       z-index: -2;
-      background-image: image-set(
-        url("/mountain-1920.jpg") 1x,
-        url("/mountain-3840.jpg") 2x
-      );
+      background-image: image-set(url("/mountain-1920.jpg") 1x,
+          url("/mountain-3840.jpg") 2x);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -45,16 +44,18 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.05) 0%,
-        rgba(0,0,0,0.10) 55%,
-        rgba(0,0,0,0.16) 100%
-      );
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.05) 0%,
+          rgba(0, 0, 0, 0.10) 55%,
+          rgba(0, 0, 0, 0.16) 100%);
     }
 
-    .nav { width: 100%; max-width: 900px; margin-bottom: 24px; }
-    
+    .nav {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+
     .back-btn {
       text-decoration: none;
       font-size: 0.95em;
@@ -62,73 +63,148 @@
       border-radius: 10px;
       display: inline-block;
       transition: all .2s;
-      color: rgba(255,255,255,0.92);
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.14);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
     }
-    .back-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.18); }
 
-    .header { text-align: center; margin: 10px 0 36px; color: #fff; }
+    .back-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .header {
+      text-align: center;
+      margin: 10px 0 36px;
+      color: #fff;
+    }
 
     /* === 核心魔法 1：彻底解决标题与图标的对齐问题 === */
     .header h1 {
       margin: 0 0 8px;
-      font-size: 2.6em; /* 统一为 index.html 的字号 */
-      font-weight: 600; /* 统一为 index.html 的字重 */
+      font-size: 2.6em;
+      /* 统一为 index.html 的字号 */
+      font-weight: 600;
+      /* 统一为 index.html 的字重 */
       letter-spacing: 1px;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.20);
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
     }
 
     .header h1 svg {
-      width: 1.15em;  /* 稍微放大，让它和英文字母 H 等高 */
+      width: 1.15em;
+      /* 稍微放大，让它和英文字母 H 等高 */
       height: 1.15em;
-      vertical-align: middle; /* 核心代码：强制垂直居中 */
+      vertical-align: middle;
+      /* 核心代码：强制垂直居中 */
       position: relative;
-      top: -0.08em; /* 视觉微调：向上抬起极其微小的一点点，完美平齐大写字母中心 */
-      margin-right: 8px; /* 与文字留出呼吸空间 */
+      top: -0.08em;
+      /* 视觉微调：向上抬起极其微小的一点点，完美平齐大写字母中心 */
+      margin-right: 8px;
+      /* 与文字留出呼吸空间 */
     }
 
-    .header p { 
-      margin: 0; 
-      opacity: .92; 
-      font-size: 1.1em; 
-      text-shadow: 0 10px 30px rgba(0,0,0,0.18); 
+    .header p {
+      margin: 0;
+      opacity: .92;
+      font-size: 1.1em;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
     .grid {
       width: 100%;
-      max-width: 700px; /* 和首页卡片组宽度保持一致 */
+      max-width: 700px;
+      /* 和首页卡片组宽度保持一致 */
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px; /* 和首页保持一致的间距 */
+      gap: 25px;
+      /* 和首页保持一致的间距 */
     }
 
     /* === 核心魔法 2：完全复刻 index.html 的浅色透亮毛玻璃 === */
     .card {
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      background: rgba(255,255,255,0.22);
+      background: rgba(255, 255, 255, 0.22);
       border-radius: 18px;
-      padding: 30px 25px; /* 统一为 index.html 的内边距 */
+      padding: 30px 25px;
+      /* 统一为 index.html 的内边距 */
       text-align: center;
       text-decoration: none;
       color: #fff;
       transition: all .3s ease;
-      border: 1px solid rgba(255,255,255,0.25);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
     .card:hover {
       transform: translateY(-6px);
-      background: rgba(255,255,255,0.28);
+      background: rgba(255, 255, 255, 0.28);
     }
 
-    .icon { font-size: 2.6em; display: block; margin-bottom: 15px; } /* 和首页完全一致 */
-    .card h3 { margin: 0 0 12px; font-size: 1.3em; font-weight: 500; }
-    .card p { margin: 0; font-size: .95em; line-height: 1.6; opacity: .92; }
+    .icon {
+      font-size: 2.6em;
+      display: block;
+      margin-bottom: 15px;
+    }
 
+    /* 和首页完全一致 */
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.3em;
+      font-weight: 500;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: .95em;
+      line-height: 1.6;
+      opacity: .92;
+    }
+
+    /* ✅ Apple 风：底部版权区（新增） */
+    .site-footer {
+      width: 100%;
+      max-width: 820px;
+      margin-top: 22px;
+      /* 紧跟 about，留一点呼吸 */
+      padding: 18px 6px 0;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.70);
+      letter-spacing: 0.2px;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .site-footer .footer-line {
+      margin: 6px 0;
+    }
+
+    .site-footer a {
+      color: rgba(255, 255, 255, 0.86);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 8vh 14px 10vh;
+      }
+
+      .about {
+        padding: 26px 20px;
+      }
+
+      .site-footer {
+        padding-top: 14px;
+        font-size: 11px;
+      }
+    }
   </style>
 </head>
 
@@ -139,9 +215,10 @@
 
   <div class="header">
     <h1>
-        <svg viewBox="0 0 24 24" fill="#18BCF2">
-            <path d="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,13 14.8,14.3 13.5,14.9V17.4H10.5V14.9C9.2,14.3 8.2,13 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,9.2C10.7,9.2 9.7,10.2 9.7,11.5C9.7,12.8 10.7,13.8 12,13.8C13.3,13.8 14.3,12.8 14.3,11.5C14.3,10.2 13.3,9.2 12,9.2Z"/>
-        </svg><span>Home Assistant</span>
+      <svg viewBox="0 0 24 24" fill="#18BCF2">
+        <path
+          d="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,13 14.8,14.3 13.5,14.9V17.4H10.5V14.9C9.2,14.3 8.2,13 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,9.2C10.7,9.2 9.7,10.2 9.7,11.5C9.7,12.8 10.7,13.8 12,13.8C13.3,13.8 14.3,12.8 14.3,11.5C14.3,10.2 13.3,9.2 12,9.2Z" />
+      </svg><span>Home Assistant</span>
     </h1>
     <p>智能家居控制中枢</p>
   </div>
@@ -150,7 +227,8 @@
     <a class="card plc" href="https://ha.pangpy.com" target="_blank" rel="noopener">
       <span class="icon">
         <svg viewBox="0 0 24 24" width="1em" height="1em" fill="#6c5ce7">
-          <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+          <path
+            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
         </svg>
       </span>
       <h3>PLC HA（实时系统）</h3>
@@ -160,13 +238,20 @@
     <a class="card studio" href="ha-studio.html">
       <span class="icon">
         <svg viewBox="0 0 24 24" width="1em" height="1em" fill="#00b894">
-          <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+          <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
         </svg>
       </span>
       <h3>HA Studio（展厅）</h3>
       <p>概览 / 饮水机 / 供电 / 各房间 / 电表</p>
     </a>
   </div>
+  <!-- ✅ Apple 风底部版权区（新增） -->
+  <footer class="site-footer">
+    <p class="footer-line">© 2026 pangpy.com</p>
+    <p class="footer-line">Photo © Hanjun Wang · Grand Teton National Park</p>
+    <p class="footer-line">Contact · <a href="mailto:contact@pangpy.com">contact@pangpy.com</a></p>
+  </footer>
 
 </body>
+
 </html>
