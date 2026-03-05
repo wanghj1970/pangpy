@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="/favicon.svg">
@@ -23,7 +24,8 @@
       align-items: center;
       position: relative;
       line-height: 1.9;
-      color: #fff; /* 全局纯白文字 */
+      color: #fff;
+      /* 全局纯白文字 */
     }
 
     body::after {
@@ -31,10 +33,8 @@
       position: fixed;
       inset: 0;
       z-index: -2;
-      background-image: image-set(
-        url("/mountain-1920.jpg") 1x,
-        url("/mountain-3840.jpg") 2x
-      );
+      background-image: image-set(url("/mountain-1920.jpg") 1x,
+          url("/mountain-3840.jpg") 2x);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -48,12 +48,10 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.05) 0%,
-        rgba(0,0,0,0.10) 55%,
-        rgba(0,0,0,0.16) 100%
-      );
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.05) 0%,
+          rgba(0, 0, 0, 0.10) 55%,
+          rgba(0, 0, 0, 0.16) 100%);
     }
 
     /* =========================================
@@ -69,21 +67,25 @@
       flex-wrap: wrap;
       margin-bottom: 18px;
     }
-    
+
     .back-btn {
       text-decoration: none;
       font-size: 0.95em;
       padding: 8px 14px;
       border-radius: 10px;
-      color: rgba(255,255,255,0.92);
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.14);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
       transition: all .2s;
     }
-    .back-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.18); }
+
+    .back-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.18);
+    }
 
     .brand {
       display: flex;
@@ -92,74 +94,121 @@
       user-select: none;
       opacity: .98;
     }
-    .brand-logo { width: 24px; height: 24px; display: block; }
-    .brand-name { font-weight: 600; letter-spacing: .5px; text-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+    .brand-logo {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
     /* =========================================
        3. 阅读器卡片（浅色透亮玻璃质感）
        ========================================= */
-    .reader, .controls, .numbers { 
-      width: 100%; 
-      max-width: 760px; 
-      box-sizing: border-box; 
+    .reader,
+    .controls,
+    .numbers {
+      width: 100%;
+      max-width: 760px;
+      box-sizing: border-box;
     }
 
     .reader {
-      background: rgba(255,255,255,0.22);
+      background: rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.25);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 18px;
       padding: 34px 28px;
-      box-shadow: 0 14px 45px rgba(0,0,0,0.14);
+      box-shadow: 0 14px 45px rgba(0, 0, 0, 0.14);
       /* 添加手势操作友好的特性 */
-      touch-action: pan-y; 
-      user-select: none; /* 防止滑动时选中文本 */
+      touch-action: pan-y;
+      user-select: none;
+      /* 防止滑动时选中文本 */
     }
 
-    .page { display: none; min-height: 60vh; animation: fadeIn 0.4s ease; }
-    .page.active { display: block; }
+    .page {
+      display: none;
+      min-height: 60vh;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* =========================================
        4. 信件内容排版
        ========================================= */
-    .title-area { text-align: center; margin-bottom: 24px; }
-    .title-area h1 { 
-      font-weight: 600; 
-      font-size: 1.8em;
-      letter-spacing: 2px; 
-      margin: 0 0 10px; 
-      text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    .title-area {
+      text-align: center;
+      margin-bottom: 24px;
     }
-    .date { color: rgba(255,255,255,0.85); font-size: .95em; letter-spacing: 1px; }
+
+    .title-area h1 {
+      font-weight: 600;
+      font-size: 1.8em;
+      letter-spacing: 2px;
+      margin: 0 0 10px;
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .date {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: .95em;
+      letter-spacing: 1px;
+    }
 
     .main-photo {
       width: 100%;
       border-radius: 12px;
       margin: 22px 0;
       display: block;
-      background: rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.1);
       min-height: 200px;
       object-fit: cover;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
-    .content { font-size: 1.05em; color: rgba(255,255,255,0.95); text-align: justify; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-    .content p { margin: 0 0 22px; text-indent: 2em; }
+    .content {
+      font-size: 1.05em;
+      color: rgba(255, 255, 255, 0.95);
+      text-align: justify;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .content p {
+      margin: 0 0 22px;
+      text-indent: 2em;
+    }
 
     .quote {
       margin: 30px 0;
       padding: 20px;
-      background: rgba(0,0,0,0.15); /* 深色半透背景，突出引用内容 */
+      background: rgba(0, 0, 0, 0.15);
+      /* 深色半透背景，突出引用内容 */
       font-style: italic;
       text-indent: 0;
-      color: rgba(255,255,255,0.9);
-      border-left: 4px solid #ff7675; /* 珊瑚红，呼应主页的思念图标 */
+      color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid #ff7675;
+      /* 珊瑚红，呼应主页的思念图标 */
       border-radius: 10px;
       text-shadow: none;
     }
@@ -167,18 +216,36 @@
     /* =========================================
        5. 相册排版
        ========================================= */
-    .album-divider { text-align: center; margin: 46px 0 26px; color: rgba(255,255,255,0.8); letter-spacing: 4px; }
-    .photo-gallery { display: flex; flex-direction: column; gap: 26px; }
+    .album-divider {
+      text-align: center;
+      margin: 46px 0 26px;
+      color: rgba(255, 255, 255, 0.8);
+      letter-spacing: 4px;
+    }
+
+    .photo-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
     .photo-gallery img {
       width: 100%;
       border-radius: 12px;
       display: block;
-      background: rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.1);
       min-height: 160px;
       object-fit: cover;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
-    .gallery-caption { margin-top: 12px; color: rgba(255,255,255,0.85); font-size: .95em; line-height: 1.65; max-width: 90%; }
+
+    .gallery-caption {
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: .95em;
+      line-height: 1.65;
+      max-width: 90%;
+    }
 
     /* =========================================
        6. 控制面板与翻页按钮
@@ -191,18 +258,19 @@
       gap: 12px;
       flex-wrap: wrap;
     }
+
     .page-info {
-      color: rgba(255,255,255,0.88);
+      color: rgba(255, 255, 255, 0.88);
       font-size: .95em;
       white-space: nowrap;
-      text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
-    
+
     button {
       padding: 8px 16px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.92);
       border-radius: 10px;
       cursor: pointer;
       transition: all .2s;
@@ -210,8 +278,16 @@
       -webkit-backdrop-filter: blur(10px);
       font-family: inherit;
     }
-    button:hover:not(:disabled) { background: rgba(255,255,255,0.22); }
-    button:disabled { opacity: .4; cursor: not-allowed; border-color: transparent; }
+
+    button:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+      border-color: transparent;
+    }
 
     .numbers {
       margin-top: 15px;
@@ -220,15 +296,67 @@
       gap: 8px;
       flex-wrap: wrap;
     }
-    .num-btn { min-width: 36px; height: 36px; padding: 0 10px; border-radius: 10px; }
+
+    .num-btn {
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      border-radius: 10px;
+    }
+
     .num-btn.active {
-      background: rgba(255,255,255,0.35);
-      border-color: rgba(255,255,255,0.4);
+      background: rgba(255, 255, 255, 0.35);
+      border-color: rgba(255, 255, 255, 0.4);
       font-weight: 700;
       color: #fff;
     }
 
-    .source { display: none; }
+    .source {
+      display: none;
+    }
+
+    /* ✅ Apple 风：底部版权区（新增） */
+    .site-footer {
+      width: 100%;
+      max-width: 820px;
+      margin-top: 22px;
+      /* 紧跟 about，留一点呼吸 */
+      padding: 18px 6px 0;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.70);
+      letter-spacing: 0.2px;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .site-footer .footer-line {
+      margin: 6px 0;
+    }
+
+    .site-footer a {
+      color: rgba(255, 255, 255, 0.86);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 8vh 14px 10vh;
+      }
+
+      .about {
+        padding: 26px 20px;
+      }
+
+      .site-footer {
+        padding-top: 14px;
+        font-size: 11px;
+      }
+    }
   </style>
 </head>
 
@@ -268,11 +396,18 @@
       </div>
       <p>我亲爱的妻子，能够娶到你是我一生中最大的福气！！！</p>
       <p>你就是天使！你来到身边来照顾我和乐乐。你爱身边所有的人，唯独忽视了你自己，或许只有天使才能这么做吧！你离开了我们，我们是那么得不舍，但是你还是离开了我们去到了天堂。</p>
-      <p>我很感激有你照顾我们，作为家里的顶梁柱，你悉心照顾我们的饮食起居，关心我们的身体健康，每天的三餐饮食安排都是你在操持，你心底善良、宽厚隐忍，从不与我们争执。逢年过节，你都会给公婆，家人，亲朋好友送上祝福， 即使对方从不回复你也会一直送上祝福。</p>
-      <p>作为丈夫，我对不起你啊！因为我经常对你发脾气，你从不回击选择了隐忍，还是继续认真细致地照顾我。你对我的关心胜过对自己，我真的好恨自己，为什么有时候会这样对你，你在心梗发作前说过你的不舒服，虽然也让你去医院检查和吃药了，但是没有及时发现是心梗的症状，我真的恨自己为什么当时没有努力了解你的那些症状，如果能够带你去医院检查心脏很可能是另外一个结果。至少还会存活下来吧我想。这是我一辈子都不能原谅自己的，我就是个木头人！我的疏忽不仅让我失去了你，也让乐乐失去了妈妈，这个家不再完整了！或许是上天对我的惩罚，我不能和你一起白头偕老。呜呼哀哉！！！如果还有下一辈子的话，还让我们做夫妻吧，我要偿还你对我的爱，弥补我的过错和遗憾！倍红，请给我这个机会吧！！！倍红，上天会怜悯你的善良和辛苦，愿你安息吧！</p>
-      <p>你是女儿的慈母。 作为母亲，你一直都在照料女儿的健康成长，你承受刨宫产的痛苦生下了乐乐，你在我常年在外奔波时承担起抚育子女的重任，乐乐已经成为一个亭亭玉立的大姑娘。你给乐乐找到了优秀的学校： 青浦区东方中学和上海市师范大学附属中学，没有这个基础平台就没有乐乐以后的上海大学以及美国藤校康奈尔大学的经历！</p>
-      <p>作为女儿，你在高中起就开始了洗衣做饭等家务，因为我的工作变动来到上海工作，你也把父母接到上海照顾，请居家保姆24小时照顾他们。每天上班前和下班后你都会在回家之前了解父母的一天的饮食起居、健康情况。母亲中风两次，你都是悉心照料，最长时间是连续三天三夜待在医院里陪护。</p>
-      <p>作为媳妇，你所做的一切无可挑剔，每至节假，你都会致电问候，考虑到他们年老多病，你定期在上海通过网络平台购买肉菜送上门。 你每周都电话询问他们的日常生活状况和身体状况，每个节假日和生日都会送上祝福，还提醒我准备节日礼物送过去。 婆婆说："你在妈心里就是好媳妇好女儿，我已经习惯了和你说话、我以前发给你信息不管你多忙都会给我回信。"</p>
+      <p>我很感激有你照顾我们，作为家里的顶梁柱，你悉心照顾我们的饮食起居，关心我们的身体健康，每天的三餐饮食安排都是你在操持，你心底善良、宽厚隐忍，从不与我们争执。逢年过节，你都会给公婆，家人，亲朋好友送上祝福，
+        即使对方从不回复你也会一直送上祝福。</p>
+      <p>
+        作为丈夫，我对不起你啊！因为我经常对你发脾气，你从不回击选择了隐忍，还是继续认真细致地照顾我。你对我的关心胜过对自己，我真的好恨自己，为什么有时候会这样对你，你在心梗发作前说过你的不舒服，虽然也让你去医院检查和吃药了，但是没有及时发现是心梗的症状，我真的恨自己为什么当时没有努力了解你的那些症状，如果能够带你去医院检查心脏很可能是另外一个结果。至少还会存活下来吧我想。这是我一辈子都不能原谅自己的，我就是个木头人！我的疏忽不仅让我失去了你，也让乐乐失去了妈妈，这个家不再完整了！或许是上天对我的惩罚，我不能和你一起白头偕老。呜呼哀哉！！！如果还有下一辈子的话，还让我们做夫妻吧，我要偿还你对我的爱，弥补我的过错和遗憾！倍红，请给我这个机会吧！！！倍红，上天会怜悯你的善良和辛苦，愿你安息吧！
+      </p>
+      <p>你是女儿的慈母。 作为母亲，你一直都在照料女儿的健康成长，你承受刨宫产的痛苦生下了乐乐，你在我常年在外奔波时承担起抚育子女的重任，乐乐已经成为一个亭亭玉立的大姑娘。你给乐乐找到了优秀的学校：
+        青浦区东方中学和上海市师范大学附属中学，没有这个基础平台就没有乐乐以后的上海大学以及美国藤校康奈尔大学的经历！</p>
+      <p>
+        作为女儿，你在高中起就开始了洗衣做饭等家务，因为我的工作变动来到上海工作，你也把父母接到上海照顾，请居家保姆24小时照顾他们。每天上班前和下班后你都会在回家之前了解父母的一天的饮食起居、健康情况。母亲中风两次，你都是悉心照料，最长时间是连续三天三夜待在医院里陪护。
+      </p>
+      <p>作为媳妇，你所做的一切无可挑剔，每至节假，你都会致电问候，考虑到他们年老多病，你定期在上海通过网络平台购买肉菜送上门。
+        你每周都电话询问他们的日常生活状况和身体状况，每个节假日和生日都会送上祝福，还提醒我准备节日礼物送过去。 婆婆说："你在妈心里就是好媳妇好女儿，我已经习惯了和你说话、我以前发给你信息不管你多忙都会给我回信。"</p>
       <p>作为员工，你认真负责完成自己的工作，即使下班以后需要工作也是毫不犹豫地去完成任务。</p>
       <p>我完全无法接受的是，就在乐乐工作刚刚顺利起步进入正轨，我们还可以有闲暇时间去享受生活的时候，你却离开了！但是，我相信你会一直以自己的方式陪伴在我们身边的，我们这个家不会散的。</p>
     </div>
@@ -303,43 +438,43 @@
           <img src="images/kid04.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">唯一的童年彩色回忆。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong01.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">2007年拍摄的证件照。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong02.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">和高中同学一起游览崂山。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong03.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">高中时候和爸爸在一起。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong04.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">美好的学生时光。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong05.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">在青岛栖霞路家的阳台上。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong06.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">高兴地合不上嘴了。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong07.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">在青岛港城丽港房地产有限公司做总经理秘书。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong08.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">在青岛集浩房地产开发公司做助理时八大关游览。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong09.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">在青岛中山公园观赏樱花。</div>
         </div>
-		<div class="gallery-item">
+        <div class="gallery-item">
           <img src="images/beihong10.jpg" alt="回忆照片" onerror="this.style.display='none'">
           <div class="gallery-caption">结婚以前我们在青岛海边游玩。</div>
         </div>
@@ -348,7 +483,7 @@
   </div>
 
   <script>
-    (function(){
+    (function () {
       const MAX_CHARS_PER_PAGE = 900;
       const PHOTOS_PER_PAGE = 2;
 
@@ -366,35 +501,35 @@
       const galleryItems = Array.from(photoGallery.querySelectorAll('.gallery-item'));
       const blocks = Array.from(letterContent.children);
 
-      function blockTextLen(el){
-        const t = (el.innerText || '').replace(/\s+/g,' ').trim();
+      function blockTextLen(el) {
+        const t = (el.innerText || '').replace(/\s+/g, ' ').trim();
         return t.length;
       }
 
       // --- 分页逻辑构建 ---
       const pages = [];
-      pages.push({ type:'cover' });
+      pages.push({ type: 'cover' });
 
       let cur = [];
       let curLen = 0;
 
-      for(const el of blocks){
+      for (const el of blocks) {
         const len = blockTextLen(el);
 
-        if(cur.length === 0 && len > MAX_CHARS_PER_PAGE){
-          pages.push({ type:'text', nodes:[el] });
+        if (cur.length === 0 && len > MAX_CHARS_PER_PAGE) {
+          pages.push({ type: 'text', nodes: [el] });
           continue;
         }
-        if(curLen + len > MAX_CHARS_PER_PAGE && cur.length){
-          pages.push({ type:'text', nodes:cur });
+        if (curLen + len > MAX_CHARS_PER_PAGE && cur.length) {
+          pages.push({ type: 'text', nodes: cur });
           cur = [el];
           curLen = len;
-        }else{
+        } else {
           cur.push(el);
           curLen += len;
         }
       }
-      if(cur.length) pages.push({ type:'text', nodes:cur });
+      if (cur.length) pages.push({ type: 'text', nodes: cur });
 
       for (let i = 0; i < galleryItems.length; i += PHOTOS_PER_PAGE) {
         const chunk = galleryItems.slice(i, i + PHOTOS_PER_PAGE);
@@ -402,14 +537,14 @@
       }
 
       const pageEls = [];
-      pages.forEach((p, idx)=>{
+      pages.forEach((p, idx) => {
         const page = document.createElement('div');
         page.className = 'page' + (idx === 0 ? ' active' : '');
 
-        if(p.type === 'cover'){
+        if (p.type === 'cover') {
           page.appendChild(titleArea.cloneNode(true));
           page.appendChild(mainPhoto.cloneNode(true));
-        } else if(p.type === 'album-chunk'){
+        } else if (p.type === 'album-chunk') {
           const divider = document.createElement('div');
           divider.className = 'album-divider';
           divider.textContent = '光影回忆';
@@ -434,18 +569,18 @@
       let current = 0;
 
       // --- 渲染页面与状态 ---
-      function render(){
-        pageEls.forEach((el, i)=> el.classList.toggle('active', i === current));
+      function render() {
+        pageEls.forEach((el, i) => el.classList.toggle('active', i === current));
         prevBtn.disabled = (current === 0);
         nextBtn.disabled = (current === pageEls.length - 1);
         info.textContent = `第 ${current + 1} 页 / 共 ${pageEls.length} 页`;
 
         numbers.innerHTML = '';
-        for(let i=0;i<pageEls.length;i++){
+        for (let i = 0; i < pageEls.length; i++) {
           const b = document.createElement('button');
           b.className = 'num-btn' + (i === current ? ' active' : '');
           b.textContent = i + 1;
-          b.addEventListener('click', ()=>{
+          b.addEventListener('click', () => {
             current = i;
             render();
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -454,15 +589,15 @@
         }
       }
 
-      function next(){
-        if(current < pageEls.length - 1){
+      function next() {
+        if (current < pageEls.length - 1) {
           current++;
           render();
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
-      function prev(){
-        if(current > 0){
+      function prev() {
+        if (current > 0) {
           current--;
           render();
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -473,12 +608,12 @@
       prevBtn.addEventListener('click', prev);
       nextBtn.addEventListener('click', next);
 
-      document.addEventListener('keydown', (e)=>{
+      document.addEventListener('keydown', (e) => {
         const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
         const typing = (tag === 'input' || tag === 'textarea' || e.target.isContentEditable);
-        if(typing) return;
-        if(e.key === 'ArrowRight') next();
-        if(e.key === 'ArrowLeft') prev();
+        if (typing) return;
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
       });
 
       // --- 核心魔法：手机端左右滑动翻页触控逻辑 ---
@@ -509,5 +644,12 @@
       render();
     })();
   </script>
+  <!-- ✅ Apple 风底部版权区（新增） -->
+  <footer class="site-footer">
+    <p class="footer-line">© 2026 pangpy.com</p>
+    <p class="footer-line">Photo © Hanjun Wang · Grand Teton National Park</p>
+    <p class="footer-line">Contact · <a href="mailto:contact@pangpy.com">contact@pangpy.com</a></p>
+  </footer>
 </body>
+
 </html>
