@@ -144,8 +144,8 @@
       opacity: .9;
     }
 
-    /* =========================================
-       3. 瀑布流照片墙核心布局 (Masonry Wall)
+/* =========================================
+       3. 智能呼吸网格布局 (Smart Grid Wall)
        ========================================= */
     .section-title {
       width: 100%;
@@ -162,37 +162,44 @@
     }
 
     .photo-wall {
+      display: grid;
+      /* 自动计算列数，每张卡片最小 280px 宽 */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px; /* 👈 这就是你要的呼吸感！上下左右绝对均匀的 25px 间距 */
       width: 100%;
       max-width: 1200px;
-      column-count: 3; /* 默认电脑端3列 */
-      column-gap: 20px;
     }
 
-    /* 瀑布流卡片 */
+    /* 统一大小的画框 */
     .photo-card {
-      break-inside: avoid; /* 防止照片被截断到下一列 */
-      margin-bottom: 20px;
+      position: relative;
       border-radius: 12px;
       overflow: hidden;
-      position: relative;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: box-shadow 0.3s ease;
+      /* 🚨 核心魔法：强制所有画框高度一模一样！ */
+      height: 280px; 
     }
 
     .photo-card:hover {
-      transform: translateY(-5px) scale(1.01);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-      z-index: 2;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
 
+    /* 智能填充的照片 */
     .photo-img {
       width: 100%;
-      height: auto;
+      height: 100%; /* 强制照片高度撑满画框 */
+      object-fit: cover; /* 🚨 核心魔法：智能裁切！保证不变形、不拉伸，完美填满 */
       display: block;
-      transition: filter 0.3s ease;
+      transition: transform 0.5s ease; /* 加个高逼格的缓慢放大动画 */
+    }
+
+    /* 悬浮时内部照片缓慢放大，但画框不动（Apple 高级感） */
+    .photo-card:hover .photo-img {
+      transform: scale(1.06);
     }
 
     /* 悬浮文字遮罩 */
@@ -201,16 +208,17 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
       padding: 30px 15px 15px;
       color: white;
-      opacity: 0; /* 默认隐藏 */
+      opacity: 0; 
       transition: opacity 0.3s ease;
-      pointer-events: none; /* 让鼠标点击能穿透到底部的图片上 */
+      pointer-events: none; 
+      z-index: 2; /* 确保文字在最上层 */
     }
 
     .photo-card:hover .photo-info {
-      opacity: 1; /* 鼠标悬浮时浮现文字 */
+      opacity: 1; 
     }
 
     .photo-info p {
@@ -220,13 +228,14 @@
       text-shadow: 0 2px 4px rgba(0,0,0,0.8);
     }
 
-    /* 响应式瀑布流列数调整 */
-    @media (max-width: 900px) {
-      .photo-wall { column-count: 2; }
-    }
+    /* 手机端适配：保持完美的间距，但变成单列或双列 */
     @media (max-width: 600px) {
-      .photo-wall { column-count: 1; }
-      .photo-info { opacity: 1; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%); padding-top: 40px;} /* 手机端默认显示一点文字渐变，防止看不见 */
+      .photo-wall { 
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 手机端显示两列更精致 */
+        gap: 15px; 
+      }
+      .photo-card { height: 200px; } /* 手机端高度调低一点 */
+      .photo-info { opacity: 1; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%); padding-top: 40px;}
     }
 
     /* =========================================
