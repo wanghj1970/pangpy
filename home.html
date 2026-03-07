@@ -31,8 +31,7 @@
       position: fixed;
       inset: 0;
       z-index: -2;
-      background-image: image-set(url("/mountain-1920.jpg") 1x,
-          url("/mountain-3840.jpg") 2x);
+      background-image: image-set(url("/mountain-1920.jpg") 1x, url("/mountain-3840.jpg") 2x);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -45,10 +44,7 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.05) 0%,
-          rgba(0, 0, 0, 0.10) 55%,
-          rgba(0, 0, 0, 0.16) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.10) 55%, rgba(0, 0, 0, 0.16) 100%);
     }
 
     /* =========================================
@@ -56,7 +52,7 @@
        ========================================= */
     .nav {
       width: 100%;
-      max-width: 900px;
+      max-width: 1200px;
       margin-bottom: 20px;
     }
 
@@ -104,7 +100,7 @@
     /* 思念信箱 */
     .memorial-banner {
       width: 100%;
-      max-width: 900px;
+      max-width: 1200px; /* 对齐照片墙宽度 */
       border-left: 4px solid rgba(255, 255, 255, 0.55);
       border-radius: 12px;
       padding: 25px 30px;
@@ -149,11 +145,11 @@
     }
 
     /* =========================================
-       3. 相册时间轴标题与网格
+       3. 瀑布流照片墙核心布局 (Masonry Wall)
        ========================================= */
     .section-title {
       width: 100%;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 40px 0 20px;
       border-bottom: 2px dashed rgba(255, 255, 255, 0.35);
       padding-bottom: 10px;
@@ -165,55 +161,72 @@
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
+    .photo-wall {
       width: 100%;
-      max-width: 900px;
+      max-width: 1200px;
+      column-count: 3; /* 默认电脑端3列 */
+      column-gap: 20px;
     }
 
-    /* 玻璃相册卡片 */
+    /* 瀑布流卡片 */
     .photo-card {
-      border-radius: 18px;
+      break-inside: avoid; /* 防止照片被截断到下一列 */
+      margin-bottom: 20px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: all .3s ease;
-      background: rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 14px 45px rgba(0, 0, 0, 0.14);
+      position: relative;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .photo-card:hover {
-      transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.28);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+      z-index: 2;
     }
 
     .photo-img {
       width: 100%;
-      height: 250px;
-      object-fit: cover;
-      cursor: pointer;
-      transition: opacity .3s;
-      background: rgba(0, 0, 0, 0.1);
+      height: auto;
       display: block;
+      transition: filter 0.3s ease;
     }
 
-    .photo-img:hover {
-      opacity: .88;
-    }
-
+    /* 悬浮文字遮罩 */
     .photo-info {
-      padding: 15px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+      padding: 30px 15px 15px;
+      color: white;
+      opacity: 0; /* 默认隐藏 */
+      transition: opacity 0.3s ease;
+      pointer-events: none; /* 让鼠标点击能穿透到底部的图片上 */
+    }
+
+    .photo-card:hover .photo-info {
+      opacity: 1; /* 鼠标悬浮时浮现文字 */
     }
 
     .photo-info p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.95);
-      font-size: .95em;
+      font-size: 0.95em;
       line-height: 1.5;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    /* 响应式瀑布流列数调整 */
+    @media (max-width: 900px) {
+      .photo-wall { column-count: 2; }
+    }
+    @media (max-width: 600px) {
+      .photo-wall { column-count: 1; }
+      .photo-info { opacity: 1; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%); padding-top: 40px;} /* 手机端默认显示一点文字渐变，防止看不见 */
     }
 
     /* =========================================
@@ -230,7 +243,6 @@
       background-color: rgba(0, 0, 0, 0.9);
       backdrop-filter: blur(8px);
       user-select: none;
-      /* 防止滑动手势选中文本 */
     }
 
     .modal-content-wrapper {
@@ -289,7 +301,6 @@
       transform: scale(1.1);
     }
 
-    /* 左右切换箭头 (电脑端显示) */
     .nav-arrow {
       position: absolute;
       top: 50%;
@@ -307,31 +318,13 @@
       color: #fff;
     }
 
-    .prev-arrow {
-      left: 5%;
-    }
-
-    .next-arrow {
-      right: 5%;
-    }
+    .prev-arrow { left: 5%; }
+    .next-arrow { right: 5%; }
 
     @media (max-width: 768px) {
-      .nav-arrow {
-        display: none;
-      }
-
-      /* 手机端隐藏箭头，靠滑动 */
-      .modal-counter {
-        top: 20px;
-        left: 20px;
-        font-size: 1em;
-      }
-
-      .close-btn {
-        top: 10px;
-        right: 20px;
-        font-size: 35px;
-      }
+      .nav-arrow { display: none; }
+      .modal-counter { top: 20px; left: 20px; font-size: 1em; }
+      .close-btn { top: 10px; right: 20px; font-size: 35px; }
     }
 
     /* =========================================
@@ -363,22 +356,16 @@
       pointer-events: none;
     }
 
-    #backToTop.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    #backToTop.show { opacity: 1; pointer-events: auto; }
+    #backToTop:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-5px); }
 
-    #backToTop:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-5px);
-    }
-
-    /* ✅ Apple 风：底部版权区（新增） */
+    /* =========================================
+       6. 底部版权区
+       ========================================= */
     .site-footer {
       width: 100%;
-      max-width: 820px;
-      margin-top: 22px;
-      /* 紧跟 about，留一点呼吸 */
+      max-width: 1200px;
+      margin-top: 40px;
       padding: 18px 6px 0;
       text-align: center;
       font-size: 12px;
@@ -388,33 +375,9 @@
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
-    .site-footer .footer-line {
-      margin: 6px 0;
-    }
-
-    .site-footer a {
-      color: rgba(255, 255, 255, 0.86);
-      text-decoration: none;
-    }
-
-    .site-footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 520px) {
-      body {
-        padding: 8vh 14px 10vh;
-      }
-
-      .about {
-        padding: 26px 20px;
-      }
-
-      .site-footer {
-        padding-top: 14px;
-        font-size: 11px;
-      }
-    }
+    .site-footer .footer-line { margin: 6px 0; }
+    .site-footer a { color: rgba(255, 255, 255, 0.86); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
   </style>
 </head>
 
@@ -436,37 +399,33 @@
     <div class="memorial-icon">🤍</div>
   </a>
 
-  <h2 class="section-title">🎓 2025年 - 乘风破浪</h2>
-  <div class="photo-grid">
+   <div class="photo-wall">
     <div class="photo-card">
-      <img src="images/202501.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学硕士毕业典礼"
-        onerror="this.style.display='none'">
+      <img src="images/202501.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学硕士毕业典礼" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>2025年5月25日，女儿康奈尔大学硕士毕业典礼。开启人生新征程！</p>
       </div>
     </div>
     <div class="photo-card">
-      <img src="images/XS115599.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学学院大楼"
-        onerror="this.style.display='none'">
+      <img src="images/XS115599.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学学院大楼" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>2025年5月25日，女儿康奈尔大学学院大楼前毕业照。</p>
       </div>
     </div>
   </div>
 
-  <h2 class="section-title">🌟 2024年 - 闪耀时刻</h2>
-  <div class="photo-grid">
+  
+  <div class="photo-wall">
     <div class="photo-card">
-      <img src="images/202403.jpg" class="photo-img" loading="lazy" alt="女儿上海大学毕业典礼"
-        onerror="this.style.display='none'">
+      <img src="images/202403.jpg" class="photo-img" loading="lazy" alt="女儿上海大学毕业典礼" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>2024年6月22号，女儿上海大学毕业典礼。为你感到无比骄傲！</p>
       </div>
     </div>
   </div>
 
-  <h2 class="section-title">💍 1996年 - 缘起</h2>
-  <div class="photo-grid">
+  
+  <div class="photo-wall">
     <div class="photo-card">
       <img src="images/199602.jpg" class="photo-img" loading="lazy" alt="结婚典礼" onerror="this.style.display='none'">
       <div class="photo-info">
@@ -478,10 +437,8 @@
   <div id="imageModal" class="modal">
     <span class="close-btn" onclick="closeModal()">&times;</span>
     <div class="modal-counter" id="photoCounter">1 / 1</div>
-
     <div class="nav-arrow prev-arrow" onclick="prevPhoto(event)">&#10094;</div>
     <div class="nav-arrow next-arrow" onclick="nextPhoto(event)">&#10095;</div>
-
     <div class="modal-content-wrapper">
       <img class="modal-content" id="fullImage" alt="full">
       <div class="modal-caption" id="photoCaption"></div>
@@ -524,7 +481,6 @@
 
     function updateModal() {
       if (photos.length === 0) return;
-
       const currentImg = photos[currentIndex];
       modalImg.src = currentImg.src;
       counterText.innerText = `${currentIndex + 1} / ${photos.length}`;
@@ -587,7 +543,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
-  <!-- ✅ Apple 风底部版权区（新增） -->
+
   <footer class="site-footer">
     <p class="footer-line">© 2026 pangpy.com</p>
     <p class="footer-line">Photo © Hanjun Wang · Grand Teton National Park</p>
