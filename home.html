@@ -52,7 +52,7 @@
        ========================================= */
     .nav {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1000px;
       margin-bottom: 20px;
     }
 
@@ -100,11 +100,11 @@
     /* 思念信箱 */
     .memorial-banner {
       width: 100%;
-      max-width: 1200px; /* 对齐照片墙宽度 */
+      max-width: 1000px; 
       border-left: 4px solid rgba(255, 255, 255, 0.55);
       border-radius: 12px;
       padding: 25px 30px;
-      margin-bottom: 10px;
+      margin-bottom: 40px; /* 加大了底边距，直接衔接照片墙 */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -144,33 +144,20 @@
       opacity: .9;
     }
 
-/* =========================================
-       3. 智能呼吸网格布局 (Smart Grid Wall)
+    /* =========================================
+       3. 终极强迫症排版：严谨网格墙 (Strict Grid)
        ========================================= */
-    .section-title {
-      width: 100%;
-      max-width: 1200px;
-      margin: 40px 0 20px;
-      border-bottom: 2px dashed rgba(255, 255, 255, 0.35);
-      padding-bottom: 10px;
-      color: rgba(255, 255, 255, 0.95);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-    }
-
     .photo-wall {
       display: grid;
-      /* 自动计算列数，每张卡片最小 280px 宽 */
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 25px; /* 👈 这就是你要的呼吸感！上下左右绝对均匀的 25px 间距 */
+      /* 🚨核心魔法：强制 3 列布局，等宽！ */
+      grid-template-columns: repeat(3, 1fr);
+      /* 🚨核心魔法：上下左右绝对相等的 20px 间距！ */
+      gap: 20px; 
       width: 100%;
-      max-width: 1200px;
+      max-width: 1000px;
     }
 
-    /* 统一大小的画框 */
+    /* 照片画框 */
     .photo-card {
       position: relative;
       border-radius: 12px;
@@ -179,25 +166,20 @@
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      transition: box-shadow 0.3s ease;
-      /* 🚨 核心魔法：强制所有画框高度一模一样！ */
-      height: 280px; 
+      /* 🚨核心魔法：强制绝对 1:1 正方形，完美对齐！ */
+      aspect-ratio: 1 / 1; 
     }
 
-    .photo-card:hover {
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    }
-
-    /* 智能填充的照片 */
     .photo-img {
       width: 100%;
-      height: 100%; /* 强制照片高度撑满画框 */
-      object-fit: cover; /* 🚨 核心魔法：智能裁切！保证不变形、不拉伸，完美填满 */
+      height: 100%;
+      /* 🚨核心魔法：智能裁切填满画框，横竖照片都不会变形 */
+      object-fit: cover; 
       display: block;
-      transition: transform 0.5s ease; /* 加个高逼格的缓慢放大动画 */
+      transition: transform 0.5s ease;
     }
 
-    /* 悬浮时内部照片缓慢放大，但画框不动（Apple 高级感） */
+    /* 悬浮时照片缓慢放大 */
     .photo-card:hover .photo-img {
       transform: scale(1.06);
     }
@@ -214,7 +196,7 @@
       opacity: 0; 
       transition: opacity 0.3s ease;
       pointer-events: none; 
-      z-index: 2; /* 确保文字在最上层 */
+      z-index: 2;
     }
 
     .photo-card:hover .photo-info {
@@ -228,13 +210,45 @@
       text-shadow: 0 2px 4px rgba(0,0,0,0.8);
     }
 
-    /* 手机端适配：保持完美的间距，但变成单列或双列 */
-    @media (max-width: 600px) {
-      .photo-wall { 
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 手机端显示两列更精致 */
-        gap: 15px; 
-      }
-      .photo-card { height: 200px; } /* 手机端高度调低一点 */
+    /* 虚位以待：占位符卡片 */
+    .placeholder-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px dashed rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      aspect-ratio: 1 / 1; /* 跟照片一样是正方形 */
+      color: rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .placeholder-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.9);
+      transform: scale(1.02);
+    }
+
+    .placeholder-icon {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+
+    .placeholder-text {
+      font-size: 0.95em;
+      letter-spacing: 2px;
+    }
+
+    /* 响应式：平板和手机端的列数 */
+    @media (max-width: 800px) {
+      .photo-wall { grid-template-columns: repeat(2, 1fr); gap: 15px; } /* 平板双列 */
+    }
+    @media (max-width: 500px) {
+      .photo-wall { grid-template-columns: repeat(1, 1fr); gap: 15px; } /* 手机单列 */
       .photo-info { opacity: 1; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%); padding-top: 40px;}
     }
 
@@ -305,10 +319,7 @@
       z-index: 1001;
     }
 
-    .close-btn:hover {
-      color: #ff7675;
-      transform: scale(1.1);
-    }
+    .close-btn:hover { color: #ff7675; transform: scale(1.1); }
 
     .nav-arrow {
       position: absolute;
@@ -323,10 +334,7 @@
       user-select: none;
     }
 
-    .nav-arrow:hover {
-      color: #fff;
-    }
-
+    .nav-arrow:hover { color: #fff; }
     .prev-arrow { left: 5%; }
     .next-arrow { right: 5%; }
 
@@ -337,7 +345,7 @@
     }
 
     /* =========================================
-       5. 悬浮的一键回顶按钮
+       5. 回顶火箭与版权区
        ========================================= */
     #backToTop {
       display: none;
@@ -355,10 +363,8 @@
       height: 50px;
       border-radius: 50%;
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s;
-      display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
@@ -368,12 +374,9 @@
     #backToTop.show { opacity: 1; pointer-events: auto; }
     #backToTop:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-5px); }
 
-    /* =========================================
-       6. 底部版权区
-       ========================================= */
     .site-footer {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1000px;
       margin-top: 40px;
       padding: 18px 6px 0;
       text-align: center;
@@ -381,7 +384,6 @@
       line-height: 1.65;
       color: rgba(255, 255, 255, 0.70);
       letter-spacing: 0.2px;
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
     .site-footer .footer-line { margin: 6px 0; }
@@ -408,39 +410,46 @@
     <div class="memorial-icon">🤍</div>
   </a>
 
-   <div class="photo-wall">
+  <div class="photo-wall">
+    
     <div class="photo-card">
       <img src="images/202501.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学硕士毕业典礼" onerror="this.style.display='none'">
       <div class="photo-info">
-        <p>2025年5月25日，女儿康奈尔大学硕士毕业典礼。开启人生新征程！</p>
+        <p>🎓 2025年5月25日，女儿康奈尔大学硕士毕业典礼。开启人生新征程！</p>
       </div>
     </div>
+
     <div class="photo-card">
       <img src="images/XS115599.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学学院大楼" onerror="this.style.display='none'">
       <div class="photo-info">
-        <p>2025年5月25日，女儿康奈尔大学学院大楼前毕业照。</p>
+        <p>🎓 2025年5月25日，女儿康奈尔大学学院大楼前毕业照。</p>
       </div>
     </div>
-  </div>
 
-  
-  <div class="photo-wall">
     <div class="photo-card">
       <img src="images/202403.jpg" class="photo-img" loading="lazy" alt="女儿上海大学毕业典礼" onerror="this.style.display='none'">
       <div class="photo-info">
-        <p>2024年6月22号，女儿上海大学毕业典礼。为你感到无比骄傲！</p>
+        <p>🌟 2024年6月22号，女儿上海大学毕业典礼。为你感到无比骄傲！</p>
       </div>
     </div>
-  </div>
 
-  
-  <div class="photo-wall">
     <div class="photo-card">
       <img src="images/199602.jpg" class="photo-img" loading="lazy" alt="结婚典礼" onerror="this.style.display='none'">
       <div class="photo-info">
-        <p>1996年9月8号，我们结婚了，开启了幸福生活！</p>
+        <p>💍 1996年9月8号，我们结婚了，开启了幸福生活！</p>
       </div>
     </div>
+
+    <div class="placeholder-card">
+      <div class="placeholder-icon">+</div>
+      <div class="placeholder-text">虚位以待</div>
+    </div>
+
+    <div class="placeholder-card">
+      <div class="placeholder-icon">+</div>
+      <div class="placeholder-text">虚位以待</div>
+    </div>
+
   </div>
 
   <div id="imageModal" class="modal">
@@ -457,7 +466,6 @@
   <button id="backToTop" title="回到顶部">🚀</button>
 
   <script>
-    // 1. 幻灯片核心逻辑
     let currentIndex = 0;
     let photos = [];
     const modal = document.getElementById("imageModal");
@@ -465,11 +473,9 @@
     const captionText = document.getElementById("photoCaption");
     const counterText = document.getElementById("photoCounter");
 
-    // 网页加载完成后，自动搜集所有照片
     document.addEventListener("DOMContentLoaded", () => {
+      // 智能筛选：它只会抓取真正的照片，不会把"待添加"卡片误抓进去
       photos = Array.from(document.querySelectorAll('.photo-img'));
-
-      // 为每张照片自动绑定点击事件
       photos.forEach((img, index) => {
         img.addEventListener('click', () => openModal(index));
       });
@@ -479,13 +485,13 @@
       currentIndex = index;
       updateModal();
       modal.style.display = "block";
-      document.body.style.overflow = "hidden"; // 背景禁止滑动
+      document.body.style.overflow = "hidden";
     }
 
     function closeModal() {
       modal.style.display = "none";
-      document.body.style.overflow = ""; // 恢复背景滑动
-      modalImg.src = ""; // 清空图片防止残影
+      document.body.style.overflow = "";
+      modalImg.src = "";
     }
 
     function updateModal() {
@@ -494,7 +500,6 @@
       modalImg.src = currentImg.src;
       counterText.innerText = `${currentIndex + 1} / ${photos.length}`;
 
-      // 智能提取照片下方的文字留言放到幻灯片里
       const infoDiv = currentImg.nextElementSibling;
       if (infoDiv && infoDiv.querySelector('p')) {
         captionText.innerText = infoDiv.querySelector('p').innerText;
@@ -515,17 +520,15 @@
       updateModal();
     }
 
-    // 2. 手机端触控：左右滑动翻页
     let touchstartX = 0;
     let touchendX = 0;
     modal.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; }, { passive: true });
     modal.addEventListener('touchend', e => {
       touchendX = e.changedTouches[0].screenX;
-      if (touchendX < touchstartX - 40) nextPhoto(); // 向左滑，下一张
-      if (touchendX > touchstartX + 40) prevPhoto(); // 向右滑，上一张
+      if (touchendX < touchstartX - 40) nextPhoto();
+      if (touchendX > touchstartX + 40) prevPhoto();
     }, { passive: true });
 
-    // 3. 电脑端键盘：方向键翻页，ESC关闭
     document.addEventListener('keydown', e => {
       if (modal.style.display === "block") {
         if (e.key === 'ArrowLeft') prevPhoto();
@@ -534,12 +537,10 @@
       }
     });
 
-    // 4. 点击图片背景任意区域也能关闭
     modal.addEventListener('click', e => {
       if (e.target === modal || e.target.className === 'modal-content-wrapper') closeModal();
     });
 
-    // 5. 悬浮回顶小火箭逻辑
     const btt = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {
