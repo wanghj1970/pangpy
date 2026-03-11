@@ -100,7 +100,7 @@
     /* 思念信箱 */
     .memorial-banner {
       width: 100%;
-      max-width: 1000px; 
+      max-width: 1000px;
       border-left: 4px solid rgba(255, 255, 255, 0.55);
       border-radius: 12px;
       padding: 25px 30px;
@@ -151,7 +151,7 @@
       display: grid;
       /* 强制 3 列布局，等宽！ */
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px; 
+      gap: 20px;
       width: 100%;
       max-width: 1000px;
     }
@@ -165,20 +165,20 @@
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      
+
       /* 🚨 绝对兼容的 1:1 魔法：弃用 aspect-ratio，改用内边距撑开正方形 */
       width: 100%;
-      padding-bottom: 100%; 
+      padding-bottom: 100%;
     }
 
     .photo-img {
       /* 🚨 配合 padding 魔法，照片必须绝对定位填满画框 */
-      position: absolute; 
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; 
+      object-fit: cover;
       display: block;
       transition: transform 0.5s ease;
     }
@@ -197,21 +197,21 @@
       background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
       padding: 30px 15px 15px;
       color: white;
-      opacity: 0; 
+      opacity: 0;
       transition: opacity 0.3s ease;
-      pointer-events: none; 
+      pointer-events: none;
       z-index: 2;
     }
 
     .photo-card:hover .photo-info {
-      opacity: 1; 
+      opacity: 1;
     }
 
     .photo-info p {
       margin: 0;
       font-size: 0.95em;
       line-height: 1.5;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     }
 
     /* 虚位以待：占位符卡片（同样进行兼容性改造） */
@@ -223,7 +223,7 @@
       color: rgba(255, 255, 255, 0.6);
       transition: all 0.3s ease;
       user-select: none;
-      
+
       /* 🚨 同理，用内边距撑开正方形 */
       width: 100%;
       padding-bottom: 100%;
@@ -237,7 +237,8 @@
       transform: scale(1.02);
     }
 
-    .placeholder-icon, .placeholder-text {
+    .placeholder-icon,
+    .placeholder-text {
       position: absolute;
       left: 0;
       right: 0;
@@ -258,12 +259,27 @@
 
     /* 响应式：平板和手机端的列数 */
     @media (max-width: 800px) {
-      .photo-wall { grid-template-columns: repeat(2, 1fr); gap: 15px; } /* 平板双列 */
+      .photo-wall {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      /* 平板双列 */
     }
+
     @media (max-width: 500px) {
-      .photo-wall { grid-template-columns: repeat(1, 1fr); gap: 15px; } /* 手机单列 */
+      .photo-wall {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+      }
+
+      /* 手机单列 */
       /* 手机端默认显示文字渐变底板，因为手机没有鼠标悬浮 */
-      .photo-info { opacity: 1; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%); padding-top: 40px;}
+      .photo-info {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+        padding-top: 40px;
+      }
     }
 
     /* =========================================
@@ -333,7 +349,10 @@
       z-index: 1001;
     }
 
-    .close-btn:hover { color: #ff7675; transform: scale(1.1); }
+    .close-btn:hover {
+      color: #ff7675;
+      transform: scale(1.1);
+    }
 
     .nav-arrow {
       position: absolute;
@@ -348,14 +367,34 @@
       user-select: none;
     }
 
-    .nav-arrow:hover { color: #fff; }
-    .prev-arrow { left: 5%; }
-    .next-arrow { right: 5%; }
+    .nav-arrow:hover {
+      color: #fff;
+    }
+
+    .prev-arrow {
+      left: 5%;
+    }
+
+    .next-arrow {
+      right: 5%;
+    }
 
     @media (max-width: 768px) {
-      .nav-arrow { display: none; }
-      .modal-counter { top: 20px; left: 20px; font-size: 1em; }
-      .close-btn { top: 10px; right: 20px; font-size: 35px; }
+      .nav-arrow {
+        display: none;
+      }
+
+      .modal-counter {
+        top: 20px;
+        left: 20px;
+        font-size: 1em;
+      }
+
+      .close-btn {
+        top: 10px;
+        right: 20px;
+        font-size: 35px;
+      }
     }
 
     /* =========================================
@@ -385,8 +424,15 @@
       pointer-events: none;
     }
 
-    #backToTop.show { opacity: 1; pointer-events: auto; }
-    #backToTop:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-5px); }
+    #backToTop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #backToTop:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-5px);
+    }
 
     .site-footer {
       width: 100%;
@@ -400,9 +446,18 @@
       letter-spacing: 0.2px;
     }
 
-    .site-footer .footer-line { margin: 6px 0; }
-    .site-footer a { color: rgba(255, 255, 255, 0.86); text-decoration: none; }
-    .site-footer a:hover { text-decoration: underline; }
+    .site-footer .footer-line {
+      margin: 6px 0;
+    }
+
+    .site-footer a {
+      color: rgba(255, 255, 255, 0.86);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -425,23 +480,26 @@
   </a>
 
   <div class="photo-wall">
-    
+
     <div class="photo-card">
-      <img src="images/202501.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学硕士毕业典礼" onerror="this.style.display='none'">
+      <img src="images/202501.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学硕士毕业典礼"
+        onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎓 2025年5月25日，女儿康奈尔大学硕士毕业典礼。看你身披学位服，准备好迎接更广阔的天地，开启人生新征程！</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS115599.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学学院大楼" onerror="this.style.display='none'">
+      <img src="images/XS115599.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学学院大楼"
+        onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎓 2025年5月25日，女儿在康奈尔大学校园毕业照。自豪地宣告：“那是我的学院！”</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202403.jpg" class="photo-img" loading="lazy" alt="女儿上海大学毕业典礼" onerror="this.style.display='none'">
+      <img src="images/202403.jpg" class="photo-img" loading="lazy" alt="女儿上海大学毕业典礼"
+        onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌟 2024年6月22日，女儿上海大学毕业典礼。见证你的成长，为你感到无比骄傲！</p>
       </div>
@@ -637,14 +695,16 @@
     </div>
 
     <div class="photo-card">
-      <img src="images/35CF2758.jpg" class="photo-img" loading="lazy" alt="Upper Kananaskis Lake" onerror="this.style.display='none'">
+      <img src="images/35CF2758.jpg" class="photo-img" loading="lazy" alt="Upper Kananaskis Lake"
+        onerror="this.style.display='none'">
       <div class="photo-info">
         <p>湖 2017年7月，加拿大 Upper Kananaskis Lake。湖光山色，宁静致远。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/35CF2768.jpg" class="photo-img" loading="lazy" alt="Upper Kananaskis Lake" onerror="this.style.display='none'">
+      <img src="images/35CF2768.jpg" class="photo-img" loading="lazy" alt="Upper Kananaskis Lake"
+        onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌲 2017年7月，加拿大 Upper Kananaskis Lake。放飞自我，时间仿佛都静止了。</p>
       </div>
@@ -759,13 +819,6 @@
       <img src="images/202411.jpg" class="photo-img" loading="lazy" alt="千岛湖" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🚤 2024年6月，浙江淳安千岛湖景区。在如画的山水间放松身心。</p>
-      </div>
-    </div>
-
-    <div class="photo-card">
-      <img src="images/XS100949.jpg" class="photo-img" loading="lazy" alt="千岛湖" onerror="this.style.display='none'">
-      <div class="photo-info">
-        <p>☀️ 2024年6月，浙江淳安千岛湖景区。微风不燥，阳光正好。</p>
       </div>
     </div>
 
@@ -949,7 +1002,7 @@
       <div class="placeholder-text">虚位以待</div>
     </div>
 
-    
+
   </div>
 
   <div id="imageModal" class="modal">
