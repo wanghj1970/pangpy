@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>管家骥先生 学术文库 - 🐷之家</title>
+  <title>管家骥 先生 - 农业先驱 - pangpy.com</title>
+
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
   <style>
-    /* 继承首页的全局样式与雪山背景 */
+    /* 全局基准与滤镜 */
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
       margin: 0;
-      padding: 6vh 20px 10vh;
+      padding: 5vh 20px 10vh;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
       color: #fff;
     }
 
@@ -28,6 +33,8 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      transform: translateZ(0);
+      will-change: transform;
     }
 
     body::before {
@@ -35,193 +42,192 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.15) 55%, rgba(0, 0, 0, 0.25) 100%);
     }
 
-    /* 顶部导航返回按钮 */
-    .nav-bar {
+    /* 导航 */
+    .nav {
       width: 100%;
-      max-width: 800px;
-      margin-bottom: 30px;
+      max-width: 1000px;
+      margin-bottom: 20px;
     }
+
     .back-btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 16px;
-      background: rgba(255, 255, 255, 0.15);
+      text-decoration: none;
+      font-size: 0.95em;
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: inline-block;
+      transition: .2s;
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: all 0.3s;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
     }
+
     .back-btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateX(-3px);
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.18);
     }
 
-    /* 核心内容区容器 */
-    .content-box {
+    /* 顶部生平卡片 */
+    .biography-header {
       width: 100%;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 40px 50px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      box-sizing: border-box;
+      max-width: 1000px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
     }
 
-    /* 头部排版 */
-    .profile-header {
+    .header-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 18px;
+      padding: 30px;
+      text-align: left;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.14);
       display: flex;
-      gap: 30px;
       align-items: center;
-      margin-bottom: 40px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      gap: 30px;
+      box-sizing: border-box;
+      width: 100%;
     }
-    .profile-img {
+
+    .header-card-image {
       width: 160px;
       height: 200px;
       border-radius: 12px;
-      object-fit: cover;
+      overflow: hidden;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       border: 2px solid rgba(255,255,255,0.3);
+      flex-shrink: 0;
     }
-    .profile-info h1 {
-      margin: 0 0 10px 0;
-      font-size: 2.2rem;
+
+    .header-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-card-info h2 {
+      margin: 0 0 10px;
+      font-size: 2.2em;
+      font-weight: 500;
       font-family: 'Georgia', serif;
       letter-spacing: 2px;
     }
-    .profile-info .title {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 15px;
+
+    .header-card-title {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 15px 0;
       line-height: 1.5;
     }
 
-    /* 生平长文排版 */
-    .bio-section h2 {
-      font-size: 1.4rem;
-      border-left: 4px solid #fff;
-      padding-left: 12px;
-      margin-top: 0;
+    @media (max-width: 700px) {
+      .header-card { flex-direction: column; text-align: center; }
     }
-    .bio-section p {
-      line-height: 1.8;
+
+    /* 文本与嵌入式老照片区域 */
+    .text-section {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.9;
       font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.9);
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.92);
       text-align: justify;
     }
 
-    /* 嵌在文中的历史老照片 */
+    .text-section h3 {
+      text-align: left;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0 0 20px;
+      letter-spacing: 1px;
+      color: #fff;
+      border-left: 4px solid #fff;
+      padding-left: 12px;
+    }
+
+    .text-section p {
+      margin: 0 0 25px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* ✅ 专属的历史老照片相纸样式 */
     .bio-inline-img {
       width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
+      max-width: 600px;
+      border-radius: 8px;
       display: block;
-      margin: 25px auto;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-      border: 1px solid rgba(255,255,255,0.15);
+      /* 上下留出 20px 的间距，让两张图连在一起时非常和谐 */
+      margin: 20px auto; 
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      border: 3px solid rgba(255,255,255,0.9);
+      background-color: #fff;
     }
 
-    /* 论文名录列表 */
-    .paper-list {
+    /* 底部版权区 */
+    .site-footer {
+      width: 100%;
+      max-width: 1000px;
       margin-top: 40px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .paper-list h2 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
-    .paper-note {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-    .paper-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 15px 20px;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      margin-bottom: 12px;
-      border-left: 3px solid rgba(255,255,255,0.4);
-    }
-    .paper-title {
-      font-size: 1.1rem;
-      color: #fff;
-      font-weight: 500;
-      margin-bottom: 5px;
-    }
-    .paper-desc {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.75);
+      padding: 18px 6px 0;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.70);
+      letter-spacing: 0.2px;
     }
 
-    @media (max-width: 600px) {
-      .content-box { padding: 30px 20px; }
-      .profile-header { flex-direction: column; text-align: center; }
-    }
+    .site-footer .footer-line { margin: 6px 0; }
+    .site-footer a { color: rgba(255, 255, 255, 0.86); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
   </style>
 </head>
 
 <body>
-  <div class="nav-bar">
+  <div class="nav">
     <a href="index.html" class="back-btn">← 返回首页</a>
   </div>
 
-  <div class="content-box">
-    <div class="profile-header">
-      <img src="https://photos.pangpy.com/guan-jiaji/guanjiaji1.jpg" alt="管家骥先生1" class="profile-img">	
-      <div class="profile-info">
-        <h1>管家骥</h1>
-        <div class="title">中国马铃薯科学技术研究先驱<br>金陵大学教授 (1900 — 1947)</div>
+  <div class="biography-header">
+    <div class="header-card">
+      <div class="header-card-image">
+        <img src="https://photos.pangpy.com/guan-jiaji/guanjiaji1.jpg" alt="管家骥 先生">
       </div>
-    </div>
-
-    <div class="bio-section">
-      <h2>生平与育种成就</h2>
-      
-      <p>管家骥先生早年赴美国顶尖的康奈尔大学农学院深造，专攻蔬菜园艺学，并于1930年代初（1933年）获得农学博士学位。</p>
-
-      <p>我国系统的马铃薯科学技术研究可追溯到20世纪早期。南京国民政府中央农事试验场于1914~1916年开展了马铃薯栽培试验，通过切块减少用种量，以解决种薯供应不足的问题。1932年成立了实业部管辖的中央农业实验所，1934年实业部任命金陵大学管家骥教授主持马铃薯改良工作，于1934~1945年在国内首次系统开展了马铃薯科学研究。</p>
-      
-	  <img src="https://photos.pangpy.com/guan-jiaji/guanjiaji1.JPG" alt="管家骥先生历史照片1" class="bio-inline-img">
-      <img src="https://photos.pangpy.com/guan-jiaji/guanjiaji2.JPG" alt="管家骥先生历史照片2" class="bio-inline-img">
-
-      <p>1934~1937年，管家骥等从全国各地搜集整理马铃薯地方品种，并从英、美等国引进了14个优良品种，筛选出“卡它丁”(Katabdin)、“七百万”(Chippewa)、“纹白”(Warba)和“黄金”(Golden) 等4个优良品种，在南京、武功和定县等地示范种植，产量均在 500kg/667m² 以上，产量比当地品种成倍增长。</p>
-      
-      <p>1938年后因战争而转至贵州继续进行。1943年，协助工作的美国马铃薯专家戴兹创(Dykstra T. P.)自美国引进52个马铃薯品种，3年内分别在成都、贵阳、威宁、武功等地进行区域试验，筛选出“火玛”(Houma)、“西北果”(Sebago)、“红纹白”(Red Warba)和“七百万”(Chippewa)等4个产量高、品质好、抗病性较强的优良品种，在西南、西北、华北推广应用了较大面积。这些工作为中国后来的薯类种植与粮食安全奠定了不可磨灭的基础。</p>
-    </div>
-
-    <div class="paper-list">
-      <h2>学术著述纪念</h2>
-      <p class="paper-note">（管家骥先生的早期著述实为国内最早的马铃薯研究文献，堪称宝贵。因年代久远暂无电子版，特在此列出书目以资纪念。）</p>
-      
-      <div class="paper-item">
-        <span class="paper-title">《我国马铃薯研究工作历史》</span>
-        <span class="paper-desc">国内极早期的马铃薯科研系统性总结文献。</span>
+      <div class="header-card-info">
+        <h2>管家骥</h2>
+        <p class="header-card-title">中国马铃薯科学技术研究先驱<br>金陵大学教授 (1900 —— 1947)</p>
       </div>
-
-      <div class="paper-item">
-        <span class="paper-title">《全国马铃薯改进计划草案》</span>
-        <span class="paper-desc">为抗战时期及战后中国马铃薯品种改良与推广制定的国家级顶层设计。</span>
-      </div>
-      
     </div>
   </div>
+
+  <div class="text-section">
+    <h3>生平与育种成就</h3>
+    <p>管家骥先生早年赴美国顶尖的康奈尔大学农学院深造，专攻蔬菜园艺学，并于1930年代初（1933年）获得农学博士学位。</p>
+    
+    <p>我国系统的马铃薯科学技术研究可追溯到20世纪早期。南京国民政府中央农事试验场曾于1914～1916年开展了马铃薯栽培试验，通过切块减少用种量，以解决种薯供应不足的问题。1932年成立了实业部管辖的中央农业实验所，1934年实业部任命金陵大学管家骥教授主持马铃薯改良工作，于1934～1945年在国内首次系统开展了马铃薯科学研究。</p>
+
+    <img src="https://photos.pangpy.com/guan-jiaji/guanjiaji1.jpg" alt="管家骥先生历史影像1" class="bio-inline-img">
+    <img src="https://photos.pangpy.com/guan-jiaji/guanjiaji2.JPG" alt="管家骥先生历史影像2" class="bio-inline-img">
+
+    <p>1934~1937年，管家骥等从全国各地搜集整理马铃薯地方品种，并从英、美等国引进了14个优良品种，筛选出“卡它丁”(Katabdin)、“七百万”(Chippewa)、“纹白”(Warba)和“黄金”(Golden) 等4个优良品种，在南京、武功和定县等地示范种植，产量均在 500kg/667m² 以上，产量比当地品种成倍增长。</p>
+
+    <p>1938年后因战争而转至贵州继续进行。1943年，协助工作的美国马铃薯专家戴兹创(Dykstra T. P.)自美国引进52个马铃薯品种，3年内分别在成都、贵阳、威宁、武功等地进行区域试验，筛选出“火玛”(Houma)、“西北果”(Sebago)、“红纹白”(Red Warba)和“七百万”(Chippewa)等4个产量高、品质好、抗病性较强的优良品种，在西南、西北、华北推广应用了较大面积。这些工作为中国后来的薯类种植与粮食安全奠定了不可磨灭的基础。</p>
+  </div>
+
+  <footer class="site-footer">
+    <p class="footer-line">© 2026 pangpy.com</p>
+    <p class="footer-line">Photo © Hanjun Wang · Grand Teton National Park</p>
+    <p class="footer-line">Contact · <a href="mailto:contact@pangpy.com">contact@pangpy.com</a></p>
+  </footer>
 </body>
+
 </html>
