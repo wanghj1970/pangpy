@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的家 - 私密空间</title>
+  <title>我的家 - 🐷之家的时光机</title>
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="/favicon.svg">
@@ -78,7 +78,7 @@
 
     .header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       color: #fff;
     }
 
@@ -97,53 +97,6 @@
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
-    /* 思念信箱 */
-    .memorial-banner {
-      width: 100%;
-      max-width: 1000px;
-      border-left: 4px solid rgba(255, 255, 255, 0.55);
-      border-radius: 12px;
-      padding: 25px 30px;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-decoration: none;
-      color: #fff;
-      transition: all .3s ease;
-      box-sizing: border-box;
-      background: rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 14px 45px rgba(0, 0, 0, 0.14);
-    }
-
-    .memorial-banner:hover {
-      transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.28);
-      border-left-color: #ff7675;
-    }
-
-    .memorial-text h3 {
-      margin: 0 0 8px;
-      font-size: 1.3em;
-      font-weight: 600;
-      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .memorial-text p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.85);
-      font-size: .95em;
-    }
-
-    .memorial-icon {
-      font-size: 2em;
-      color: #ff7675;
-      opacity: .9;
-    }
-
     /* =========================================
        3. 终极强迫症排版：严谨网格墙 (Strict Grid)
        ========================================= */
@@ -156,7 +109,7 @@
       max-width: 1000px;
     }
 
-    /* 照片画框（兼容旧版 Safari 的黄金方案） */
+    /* 照片画框 */
     .photo-card {
       position: relative;
       border-radius: 12px;
@@ -214,57 +167,12 @@
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     }
 
-    /* 虚位以待：占位符卡片（同样进行兼容性改造） */
-    .placeholder-card {
-      position: relative;
-      background: rgba(255, 255, 255, 0.08);
-      border: 2px dashed rgba(255, 255, 255, 0.35);
-      border-radius: 12px;
-      color: rgba(255, 255, 255, 0.6);
-      transition: all 0.3s ease;
-      user-select: none;
-
-      /* 🚨 同理，用内边距撑开正方形 */
-      width: 100%;
-      padding-bottom: 100%;
-      box-sizing: border-box;
-    }
-
-    .placeholder-card:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.6);
-      color: rgba(255, 255, 255, 0.9);
-      transform: scale(1.02);
-    }
-
-    .placeholder-icon,
-    .placeholder-text {
-      position: absolute;
-      left: 0;
-      right: 0;
-      text-align: center;
-    }
-
-    .placeholder-icon {
-      top: 35%;
-      font-size: 2.5em;
-      font-weight: 300;
-    }
-
-    .placeholder-text {
-      top: 60%;
-      font-size: 0.95em;
-      letter-spacing: 2px;
-    }
-
     /* 响应式：平板和手机端的列数 */
     @media (max-width: 800px) {
       .photo-wall {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
-
-      /* 平板双列 */
     }
 
     @media (max-width: 500px) {
@@ -273,7 +181,6 @@
         gap: 15px;
       }
 
-      /* 手机单列 */
       /* 手机端默认显示文字渐变底板，因为手机没有鼠标悬浮 */
       .photo-info {
         opacity: 1;
@@ -418,6 +325,7 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s;
+      display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
@@ -463,7 +371,7 @@
 
 <body>
   <div class="nav">
-    <a href="index.html" class="back-btn">← 返回导航页</a>
+    <a href="index.html" class="back-btn">← 返回首页</a>
   </div>
 
   <div class="header">
@@ -471,533 +379,518 @@
     <p>把平凡的日子，过成闪闪发光的碎片</p>
   </div>
 
-  <a href="memorial.html" class="memorial-banner">
-    <div class="memorial-text">
-      <h3>🕊️ 寄往天堂的信</h3>
-      <p>倍红· 我们永远怀念你</p>
-    </div>
-    <div class="memorial-icon">🤍</div>
-  </a>
-
   <div class="photo-wall">
 
     <div class="photo-card">
-      <img src="images/202501.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学硕士毕业典礼"
-        onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202501.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学硕士毕业典礼" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎓 2025年5月25日，女儿康奈尔大学硕士毕业典礼。看你身披学位服，准备好迎接更广阔的天地，开启人生新征程！</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS115599.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学学院大楼"
-        onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/XS115599.jpg" class="photo-img" loading="lazy" alt="女儿康奈尔大学学院大楼" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎓 2025年5月25日，女儿在康奈尔大学校园毕业照。自豪地宣告：“那是我的学院！”</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202403.jpg" class="photo-img" loading="lazy" alt="女儿上海大学毕业典礼"
-        onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202403.jpg" class="photo-img" loading="lazy" alt="女儿上海大学毕业典礼" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌟 2024年6月22日，女儿上海大学毕业典礼。见证你的成长，为你感到无比骄傲！</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/199602.jpg" class="photo-img" loading="lazy" alt="结婚典礼" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/199602.jpg" class="photo-img" loading="lazy" alt="结婚典礼" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>💍 1996年9月8日，我们结婚了。执子之手，从此开启了最美好的时光。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/199603.jpg" class="photo-img" loading="lazy" alt="迎娶倍红" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/199603.jpg" class="photo-img" loading="lazy" alt="迎娶倍红" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>❤️ 1996年9月8日，去岳父岳母家迎娶我的新娘——倍红。满眼都是藏不住的欢喜。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200301.jpg" class="photo-img" loading="lazy" alt="亲亲宝贝" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200301.jpg" class="photo-img" loading="lazy" alt="亲亲宝贝" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>👶 2003年，亲亲我的宝贝。感受着小生命带来的柔软与奇迹。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200401.jpg" class="photo-img" loading="lazy" alt="乐乐2岁" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200401.jpg" class="photo-img" loading="lazy" alt="乐乐2岁" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎂 2004年，青岛汇泉广场。妈妈温柔地说：“乐乐2岁啦！”那是阳光和海风都刚好的日子。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200501.jpg" class="photo-img" loading="lazy" alt="游览苏州" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200501.jpg" class="photo-img" loading="lazy" alt="游览苏州" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌿 2005年6月，漫步苏州。小桥流水记录下我们闲适的脚步。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200502.jpg" class="photo-img" loading="lazy" alt="苏州园林" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200502.jpg" class="photo-img" loading="lazy" alt="苏州园林" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🪟 2005年6月，游览苏州园林。在一步一景中体会江南的温婉。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200601.jpg" class="photo-img" loading="lazy" alt="天安门广场" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200601.jpg" class="photo-img" loading="lazy" alt="天安门广场" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏛️ 2006年5月，相伴打卡北京天安门广场。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200603.jpg" class="photo-img" loading="lazy" alt="结婚10周年" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200603.jpg" class="photo-img" loading="lazy" alt="结婚10周年" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>👰‍♀️ 2006年11月，青岛金夫人影楼。时光荏苒，这是属于我们的结婚十周年纪念。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200702.jpg" class="photo-img" loading="lazy" alt="南京中山陵" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200702.jpg" class="photo-img" loading="lazy" alt="南京中山陵" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>⛰️ 2007年7月，游览南京中山陵。登高望远，绿意盎然。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200801.jpg" class="photo-img" loading="lazy" alt="奉贤海边" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200801.jpg" class="photo-img" loading="lazy" alt="奉贤海边" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌊 2008年8月，上海奉贤海边赶海。海滩上留下了我们一串串欢声笑语。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200802.jpg" class="photo-img" loading="lazy" alt="岳父母迁居上海" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200802.jpg" class="photo-img" loading="lazy" alt="岳父母迁居上海" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏡 2008年12月，姐姐姐夫接岳父母迁居上海。一家人团聚，在哪儿都是最温暖的家。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/200803.jpg" class="photo-img" loading="lazy" alt="全家团聚" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/200803.jpg" class="photo-img" loading="lazy" alt="全家团聚" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>👨‍👩‍👧‍👦 2008年12月，大家庭齐聚上海，留下这份珍贵的团圆回忆。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201101.jpg" class="photo-img" loading="lazy" alt="结婚15周年" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201101.jpg" class="photo-img" loading="lazy" alt="结婚15周年" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🥂 2011年5月，上海青浦。携手走过风雨，定格我们结婚十五周年的甜蜜。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201102.jpg" class="photo-img" loading="lazy" alt="结婚15周年" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201102.jpg" class="photo-img" loading="lazy" alt="结婚15周年" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>💐 2011年5月，上海青浦结婚十五周年。岁月从不败深情。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/20120122.jpg" class="photo-img" loading="lazy" alt="新加坡过春节" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/20120122.jpg" class="photo-img" loading="lazy" alt="新加坡过春节" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏮 2012年1月，在新加坡欢度春节。异国他乡也满是浓浓的年味。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201202.jpg" class="photo-img" loading="lazy" alt="新加坡总统府" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201202.jpg" class="photo-img" loading="lazy" alt="新加坡总统府" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏛️ 2012年1月，参观新加坡总统府。开阔眼界的新春之旅。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/DSCF0285.jpg" class="photo-img" loading="lazy" alt="九寨沟" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/DSCF0285.jpg" class="photo-img" loading="lazy" alt="九寨沟" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌲 2014年8月，四川九寨沟国家公园。沉醉在这如童话般纯净的山水之间。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201501.jpg" class="photo-img" loading="lazy" alt="上海罗氏家庭日" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201501.jpg" class="photo-img" loading="lazy" alt="上海罗氏家庭日" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎡 2015年5月，上海罗氏家庭日。陪伴是最长情的告白。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201502.jpg" class="photo-img" loading="lazy" alt="加拿大国会大厦" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201502.jpg" class="photo-img" loading="lazy" alt="加拿大国会大厦" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🇨🇦 2015年8月，加拿大渥太华。在庄严的国会大厦前留下足迹。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201503.jpg" class="photo-img" loading="lazy" alt="哈佛大学" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201503.jpg" class="photo-img" loading="lazy" alt="哈佛大学" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>📚 2015年8月，美国哈佛大学。感受世界顶尖学府的学术底蕴。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201504.jpg" class="photo-img" loading="lazy" alt="纽约时代广场" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201504.jpg" class="photo-img" loading="lazy" alt="纽约时代广场" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🍎 2015年8月，美国纽约时代广场。置身于世界的十字路口，感受繁华喧嚣。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201505.jpg" class="photo-img" loading="lazy" alt="华盛顿白宫" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201505.jpg" class="photo-img" loading="lazy" alt="华盛顿白宫" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🇺🇸 2015年8月，美国华盛顿特区白宫外。北美之旅的难忘瞬间。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/DSCF1819.jpg" class="photo-img" loading="lazy" alt="尼亚加拉瀑布" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/DSCF1819.jpg" class="photo-img" loading="lazy" alt="尼亚加拉瀑布" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌊 2015年8月，加拿大尼亚加拉瀑布。被大自然的磅礴气势深深震撼。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/DSCF2146.jpg" class="photo-img" loading="lazy" alt="渥太华姨妈家" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/DSCF2146.jpg" class="photo-img" loading="lazy" alt="渥太华姨妈家" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>👨‍👩‍👧 2015年8月，加拿大渥太华姨妈家合影。跨越半个地球的亲情相聚。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201602.jpg" class="photo-img" loading="lazy" alt="结婚20周年" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201602.jpg" class="photo-img" loading="lazy" alt="结婚20周年" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>👨‍👩‍👧 2016年7月，上海闵行。光阴似箭，转眼已是结婚二十周年的全家福。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/201701.jpg" class="photo-img" loading="lazy" alt="班夫国家公园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/201701.jpg" class="photo-img" loading="lazy" alt="班夫国家公园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏔️ 2017年7月，加拿大班夫国家公园。雪山掩映，美得让人忘记呼吸。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/35CF2502.jpg" class="photo-img" loading="lazy" alt="渥太华国庆日" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/35CF2502.jpg" class="photo-img" loading="lazy" alt="渥太华国庆日" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🍁 2017年7月，加拿大渥太华国庆日。在这片枫叶之国感受节日的狂欢。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/35CF2758.jpg" class="photo-img" loading="lazy" alt="Upper Kananaskis Lake"
-        onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/35CF2758.jpg" class="photo-img" loading="lazy" alt="Upper Kananaskis Lake" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>湖 2017年7月，加拿大 Upper Kananaskis Lake。湖光山色，宁静致远。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/35CF2768.jpg" class="photo-img" loading="lazy" alt="Upper Kananaskis Lake"
-        onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/35CF2768.jpg" class="photo-img" loading="lazy" alt="Upper Kananaskis Lake" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌲 2017年7月，加拿大 Upper Kananaskis Lake。放飞自我，时间仿佛都静止了。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/35CF2907.jpg" class="photo-img" loading="lazy" alt="翡翠湖" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/35CF2907.jpg" class="photo-img" loading="lazy" alt="翡翠湖" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🛶 2017年7月，加拿大 Yoho 国家公园翡翠湖。一抹醉人的绿宝石。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202201.jpg" class="photo-img" loading="lazy" alt="温馨时刻" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202201.jpg" class="photo-img" loading="lazy" alt="温馨时刻" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>☕ 2022年3月，上海浦东家中。哪怕岁月恬淡，也有最温馨的时刻相伴。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202203.jpg" class="photo-img" loading="lazy" alt="雁荡山" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202203.jpg" class="photo-img" loading="lazy" alt="雁荡山" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>📸 2022年9月，浙江雁荡山龙岩景区。感谢乐乐按下快门，为我们拍下这难忘的一刻。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202204.jpg" class="photo-img" loading="lazy" alt="王开照相馆全家福" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202204.jpg" class="photo-img" loading="lazy" alt="王开照相馆全家福" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>📷 2022年12月，上海王开照相馆全家福。经典的光影，定格我们最美的笑容。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202205.jpg" class="photo-img" loading="lazy" alt="王开照相馆" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202205.jpg" class="photo-img" loading="lazy" alt="王开照相馆" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎞️ 2022年12月，上海王开照相馆。老字号里的岁月留存。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202206.jpg" class="photo-img" loading="lazy" alt="王开照相馆" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202206.jpg" class="photo-img" loading="lazy" alt="王开照相馆" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>💖 2022年12月，上海王开照相馆。每一次定格，都是对彼此深深的眷恋。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202301.jpg" class="photo-img" loading="lazy" alt="顾村公园赏樱" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202301.jpg" class="photo-img" loading="lazy" alt="顾村公园赏樱" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌸 2023年5月，上海宝山顾村公园。在漫天樱花中感受春天的气息。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202304.jpg" class="photo-img" loading="lazy" alt="遇龙河竹筏" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202304.jpg" class="photo-img" loading="lazy" alt="遇龙河竹筏" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🚣‍♂️ 2023年7月，广西阳朔遇龙河。乘坐竹筏，人在画中游。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/IMG_5890.JPG" class="photo-img" loading="lazy" alt="蛟口水库" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/IMG_5890.JPG" class="photo-img" loading="lazy" alt="蛟口水库" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏝️ 2023年10月，宁波蛟口水库。在闹市中找得一片净土。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202305.jpg" class="photo-img" loading="lazy" alt="鼓浪屿" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202305.jpg" class="photo-img" loading="lazy" alt="鼓浪屿" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏝️ 2023年11月，福建厦门鼓浪屿。海风拂面，岁月静好。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202306.jpg" class="photo-img" loading="lazy" alt="鼓浪屿" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202306.jpg" class="photo-img" loading="lazy" alt="鼓浪屿" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌊 2023年11月，福建厦门鼓浪屿。漫步琴岛，听海浪轻语。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202309.jpg" class="photo-img" loading="lazy" alt="云水谣" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202309.jpg" class="photo-img" loading="lazy" alt="云水谣" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🛖 2023年11月，福建龙岩永定云水谣景区。探寻古老土楼的岁月痕迹。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202311.jpg" class="photo-img" loading="lazy" alt="崇武古城" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202311.jpg" class="photo-img" loading="lazy" alt="崇武古城" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🐚 2023年11月，福建泉州崇武古城海边。听涛声依旧，感受古城的厚重。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/IMG_8205.jpg" class="photo-img" loading="lazy" alt="鼓浪屿夕阳" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/IMG_8205.jpg" class="photo-img" loading="lazy" alt="鼓浪屿夕阳" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌅 2023年11月，福建厦门鼓浪屿。落日余晖下的温暖记忆。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202401.jpg" class="photo-img" loading="lazy" alt="故宫博物院" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202401.jpg" class="photo-img" loading="lazy" alt="故宫博物院" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏯 2024年2月，游览北京故宫博物院。红墙黄瓦间，寻觅历史的印记。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202410.jpg" class="photo-img" loading="lazy" alt="千岛湖" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202410.jpg" class="photo-img" loading="lazy" alt="千岛湖" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏞️ 2024年6月，浙江淳安千岛湖景区。碧波万顷，心旷神怡。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202411.jpg" class="photo-img" loading="lazy" alt="千岛湖" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202411.jpg" class="photo-img" loading="lazy" alt="千岛湖" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🚤 2024年6月，浙江淳安千岛湖景区。在如画的山水间放松身心。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS100988.jpg" class="photo-img" loading="lazy" alt="母女搞怪" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/XS100988.jpg" class="photo-img" loading="lazy" alt="母女搞怪" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🤪 2024年6月，千岛湖景区。母女俩的欢乐搞怪瞬间（一），满满的幸福感溢出屏幕！</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS100991.jpg" class="photo-img" loading="lazy" alt="母女搞怪" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/XS100991.jpg" class="photo-img" loading="lazy" alt="母女搞怪" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>😆 2024年6月，千岛湖景区。母女俩的欢乐搞怪瞬间（二），愿这份纯真的笑容永远灿烂！</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202404.jpg" class="photo-img" loading="lazy" alt="浦东机场送别" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202404.jpg" class="photo-img" loading="lazy" alt="浦东机场送别" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>✈️ 2024年8月，浦东机场。纵有万般不舍，依然带着满满的祝福送乐乐去康奈尔大学留学。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202407.jpg" class="photo-img" loading="lazy" alt="梅里雪山" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202407.jpg" class="photo-img" loading="lazy" alt="梅里雪山" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏔️ 2024年9月，云南德钦梅里雪山国家公园。朝圣雪山，敬畏自然。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/Cornell.jpg" class="photo-img" loading="lazy" alt="康奈尔夕阳" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/Cornell.jpg" class="photo-img" loading="lazy" alt="康奈尔夕阳" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌇 2024年10月，美国康奈尔大学校园。金色的夕阳洒满学府，温暖而宁静。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202502.jpg" class="photo-img" loading="lazy" alt="康奈尔校园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202502.jpg" class="photo-img" loading="lazy" alt="康奈尔校园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎓 2025年5月，漫步美国康奈尔大学校园，感受这里的书卷气息。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202504.jpg" class="photo-img" loading="lazy" alt="锡安国家公园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202504.jpg" class="photo-img" loading="lazy" alt="锡安国家公园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏜️ 2025年5月，美国锡安国家公园 (Zion)。在赤壁深谷中感叹造物的神奇。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/20250502.jpg" class="photo-img" loading="lazy" alt="黄石国家公园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/20250502.jpg" class="photo-img" loading="lazy" alt="黄石国家公园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌋 2025年5月，美国黄石国家公园。踏入这片狂野而奇妙的大地。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/20250503.jpg" class="photo-img" loading="lazy" alt="黄石国家公园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/20250503.jpg" class="photo-img" loading="lazy" alt="黄石国家公园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🦌 2025年5月，美国黄石国家公园。记录大自然的生机与壮美。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/20250507.jpg" class="photo-img" loading="lazy" alt="毕业典礼" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/20250507.jpg" class="photo-img" loading="lazy" alt="毕业典礼" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎊 2025年5月，美国康奈尔大学学院毕业典礼。这是属于你的荣耀时刻！</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/20250604.jpg" class="photo-img" loading="lazy" alt="大提顿国家公园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/20250604.jpg" class="photo-img" loading="lazy" alt="大提顿国家公园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>⛰️ 2025年5月，美国大提顿国家公园。仰望连绵的群峰，心胸豁然开朗。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202507.jpg" class="photo-img" loading="lazy" alt="大提顿国家公园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202507.jpg" class="photo-img" loading="lazy" alt="大提顿国家公园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌲 2025年5月，美国大提顿国家公园。湖光山色如诗如画。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS115554.jpg" class="photo-img" loading="lazy" alt="毕业照" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/XS115554.jpg" class="photo-img" loading="lazy" alt="毕业照" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>👩‍🎓 2025年5月，康奈尔大学校园毕业照。青春的脸庞写满对未来的憧憬。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS115555.jpg" class="photo-img" loading="lazy" alt="毕业照" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/XS115555.jpg" class="photo-img" loading="lazy" alt="毕业照" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🎓 2025年5月，康奈尔大学校园毕业照。每一份努力都结出了硕果。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS115584.jpg" class="photo-img" loading="lazy" alt="最靓的那一个" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/XS115584.jpg" class="photo-img" loading="lazy" alt="最靓的那一个" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>✨ 2025年5月，康奈尔大学校园。无论走到哪里，你都是最靓的那一个！</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS115595.jpg" class="photo-img" loading="lazy" alt="毕业照" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/XS115595.jpg" class="photo-img" loading="lazy" alt="毕业照" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>📷 2025年5月，康奈尔大学校园毕业照。定格这来之不易的求学岁月。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/XS115597.jpg" class="photo-img" loading="lazy" alt="我的学院" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/XS115597.jpg" class="photo-img" loading="lazy" alt="我的学院" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏫 2025年5月，女儿在康奈尔大学学院大楼前的定格。愿你的未来如这建筑般坚实笃定。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/20250601.jpg" class="photo-img" loading="lazy" alt="大峡谷国家公园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/20250601.jpg" class="photo-img" loading="lazy" alt="大峡谷国家公园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>⛰️ 2025年6月，美国大峡谷国家公园 (Grand Canyon)。在深邃的峡谷边缘感受极致的震撼。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202509.jpg" class="photo-img" loading="lazy" alt="黄石北门" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202509.jpg" class="photo-img" loading="lazy" alt="黄石北门" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🏞️ 2025年6月，美国黄石国家公园北门。历史的拱门见证我们的足迹。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202510.jpg" class="photo-img" loading="lazy" alt="大棱镜" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202510.jpg" class="photo-img" loading="lazy" alt="大棱镜" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌈 2025年6月，美国黄石国家公园大棱镜 (Grand Prismatic)。上帝打翻在人间的调色盘。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202511.jpg" class="photo-img" loading="lazy" alt="大峡谷瀑布" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202511.jpg" class="photo-img" loading="lazy" alt="大峡谷瀑布" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌊 2025年6月，美国黄石国家公园大峡谷瀑布。听水声轰鸣，如雷贯耳。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/202512.jpg" class="photo-img" loading="lazy" alt="大峡谷国家公园" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/202512.jpg" class="photo-img" loading="lazy" alt="大峡谷国家公园" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🌄 2025年6月，美国大峡谷国家公园。每一道岩层都刻着时间的故事。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/IMG_5642.jpg" class="photo-img" loading="lazy" alt="布莱斯峡谷" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/IMG_5642.jpg" class="photo-img" loading="lazy" alt="布莱斯峡谷" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🗿 2025年6月，美国布莱斯峡谷国家公园。大自然鬼斧神工的雕刻艺术。</p>
       </div>
     </div>
 
     <div class="photo-card">
-      <img src="images/IMG_5643.jpg" class="photo-img" loading="lazy" alt="布莱斯峡谷" onerror="this.style.display='none'">
+      <img src="https://photos.pangpy.com/family/IMG_5643.jpg" class="photo-img" loading="lazy" alt="布莱斯峡谷" onerror="this.style.display='none'">
       <div class="photo-info">
         <p>🚶‍♂️ 2025年6月，美国布莱斯峡谷国家公园。石柱林立，惊叹连连。</p>
       </div>
     </div>
-
-    
 
   </div>
 
@@ -1023,7 +916,6 @@
     const counterText = document.getElementById("photoCounter");
 
     document.addEventListener("DOMContentLoaded", () => {
-      // 智能筛选：它只会抓取真正的照片，不会把"待添加"卡片误抓进去
       photos = Array.from(document.querySelectorAll('.photo-img'));
       photos.forEach((img, index) => {
         img.addEventListener('click', () => openModal(index));

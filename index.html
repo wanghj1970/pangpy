@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🐷之家</title>
+  <title>🐷之家 - pangpy.com</title>
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="/favicon.svg">
@@ -23,7 +23,7 @@
       color: #fff;
     }
 
-    /* ✅ 背景图：伪 fixed（更清晰） */
+    /* 背景图：原封不动保留，极其清晰 */
     body::after {
       content: "";
       position: fixed;
@@ -40,7 +40,7 @@
       will-change: transform;
     }
 
-    /* ✅ 遮罩：入口最通透 */
+    /* 遮罩：入口最通透 */
     body::before {
       content: "";
       position: fixed;
@@ -80,26 +80,30 @@
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
+    /* ✅ 三足鼎立网格（宽度扩充到 1100px） */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
       width: 100%;
-      max-width: 700px;
+      max-width: 1100px;
     }
 
+    /* 卡片毛玻璃样式 */
     .card {
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       background: rgba(255, 255, 255, 0.22);
       border-radius: 18px;
-      padding: 30px 25px;
+      padding: 20px;
       text-align: center;
       text-decoration: none;
       color: #fff;
       transition: all .3s ease;
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 18px 55px rgba(0, 0, 0, 0.14);
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
@@ -108,51 +112,88 @@
       box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
     }
 
+    /* 卡片内部排版元素 */
+    .card-image {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover .card-image img {
+      transform: scale(1.04);
+    }
+
     .card h3 {
-      margin: 0 0 12px;
-      font-size: 1.3em;
+      margin: 0 0 8px;
+      font-size: 1.4em;
       font-weight: 500;
+      font-family: 'Georgia', serif;
+      letter-spacing: 1px;
     }
 
-    .card p {
+    .card-tag {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0 0 12px 0;
+    }
+
+    .card-divider {
+      width: 40px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.5);
+      margin: 0 auto 12px auto;
+    }
+
+    .card-desc {
       margin: 0;
-      font-size: .95em;
-      line-height: 1.6;
-      opacity: .92;
+      font-size: 0.95em;
+      line-height: 1.7;
+      opacity: 0.92;
+      flex-grow: 1;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
-    .icon {
-      font-size: 2.6em;
-      margin-bottom: 15px;
-      display: block;
+    .btn-read {
+      display: inline-block;
+      align-self: center;
+      padding: 6px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85em;
+      transition: all 0.3s ease;
     }
 
-    @media (min-width: 620px) {
-      .card.myhome {
-        grid-column: 1/-1;
-        justify-self: center;
-        width: 280px;
-      }
+    .btn-read:hover {
+      background: #fff;
+      color: #333;
     }
 
-    /* ✅ 关于 pangpy：B 策略（长文深色字，功能卡片白字） */
+    /* 关于 pangpy：B 策略 */
     .about {
-      margin-top: 72px; /* 原 64，增加呼吸感 */
+      margin-top: 72px;
       width: 100%;
       max-width: 820px;
-
       line-height: 1.95;
       font-size: 0.96rem;
       text-align: left;
-
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px); /* 与模板一致，Safari 稳 */
-
+      -webkit-backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.34);
-
       border-radius: 18px;
       padding: 32px 40px;
-
       border: 1px solid rgba(255, 255, 255, 0.40);
       box-shadow: 0 22px 70px rgba(0, 0, 0, 0.16);
     }
@@ -168,12 +209,8 @@
 
     .about p {
       margin: 0 0 16px;
-
-      /* 长文阅读：深色字更清晰 */
       color: rgba(17, 24, 39, 0.86);
       text-shadow: none;
-
-      /* ✅ 限制行宽，让它像一封信 */
       max-width: 680px;
       margin-left: auto;
       margin-right: auto;
@@ -207,11 +244,11 @@
       margin-right: auto;
     }
 
-    /* ✅ Apple 风：底部版权区（新增） */
+    /* Apple 风底部版权区 */
     .site-footer {
       width: 100%;
       max-width: 820px;
-      margin-top: 22px; /* 紧跟 about，留一点呼吸 */
+      margin-top: 22px;
       padding: 18px 6px 0;
       text-align: center;
       font-size: 12px;
@@ -221,32 +258,53 @@
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
-    .site-footer .footer-line {
-      margin: 6px 0;
+    .site-footer .footer-line { margin: 6px 0; }
+    .site-footer a { color: rgba(255, 255, 255, 0.86); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+
+    /* ✅ 隐形保险箱：右下角悬浮私密通道 */
+    .admin-tools {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
     }
 
-    .site-footer a {
-      color: rgba(255, 255, 255, 0.86);
+    .admin-tools a {
+      display: flex;
+      align-items: center;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.08); /* 极低存在感 */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
+      font-size: 12px;
+      font-weight: 400;
+      transition: all 0.3s ease;
     }
 
-    .site-footer a:hover {
-      text-decoration: underline;
+    .admin-tools a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateX(-4px); /* 鼠标放上去向左微微弹出 */
     }
+
+    .admin-tools .icon-small { font-size: 15px; margin-right: 8px;}
+    .admin-tools .text { letter-spacing: 1px; }
 
     @media (max-width: 520px) {
-      body {
-        padding: 8vh 14px 10vh;
-      }
-
-      .about {
-        padding: 26px 20px;
-      }
-
-      .site-footer {
-        padding-top: 14px;
-        font-size: 11px;
-      }
+      body { padding: 8vh 14px 10vh; }
+      .about { padding: 26px 20px; }
+      .site-footer { padding-top: 14px; font-size: 11px; }
+      /* 手机端稍微隐藏悬浮按钮，避免挡住文字 */
+      .admin-tools { transform: scale(0.8); right: 5px; bottom: 10px; }
     }
   </style>
 </head>
@@ -259,77 +317,90 @@
   </div>
 
   <div class="grid">
-    <a href="home.html" class="card myhome">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" width="1em" height="1em" fill="#ff7675">
-          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-        </svg>
-      </span>
-      <h3>我的家</h3>
-      <p>家庭相册与生活记录</p>
-    </a>
+    
+    <div class="card">
+      <div class="card-image">
+        <img src="https://photos.pangpy.com/guan-beihong/main.jpg" alt="永远的怀念">
+      </div>
+      <h3>In Loving Memory</h3>
+      <p class="card-tag">妻子 · 🐷之家</p>
+      <div class="card-divider"></div>
+      <p class="card-desc">她特别喜欢猪的卡通形象，从表情包到各种材质的小猪玩偶。这里永远是她温馨的家。</p>
+      <a href="home.html" class="btn-read">进入时光机</a>
+    </div>
 
-    <a href="ha.html" class="card">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" width="1em" height="1em" fill="#03A9F4">
-          <path
-            d="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,13 14.8,14.3 13.5,14.9V17.4H10.5V14.9C9.2,14.3 8.2,13 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,9.2C10.7,9.2 9.7,10.2 9.7,11.5C9.7,12.8 10.7,13.8 12,13.8C13.3,13.8 14.3,12.8 14.3,11.5C14.3,10.2 13.3,9.2 12,9.2Z" />
-        </svg>
-      </span>
-      <h3>Home Assistant</h3>
-      <p>智能家居控制中枢</p>
-    </a>
+    <div class="card">
+      <div class="card-image">
+        <img src="https://photos.pangpy.com/guan-jiaji/guanjiaji2.JPG" alt="管家骥 先生">
+      </div>
+      <h3>管家骥 先生</h3>
+      <p class="card-tag">农业先驱 · 康奈尔博士</p>
+      <div class="card-divider"></div>
+      <p class="card-desc">中国现代蔬菜园艺学与作物育种学奠基人。毕生致力于引进良种，丰盈同胞的餐桌。</p>
+      <a href="guan-jiaji.html" class="btn-read">查阅文库</a>
+    </div>
 
-    <a href="https://rdp.pangpy.com:8973" class="card" target="_blank" rel="noopener">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" width="1em" height="1em" fill="#0078D7">
-          <path
-            d="M2.999 5.836l7.531-1.049v6.738H2.999V5.836zm8.688-1.256L21 3.001v8.524h-9.313V4.58zm-8.688 7.943h7.531v6.756l-7.531-1.05V12.523zm8.688 0H21v8.524l-9.313-1.562v-6.962z" />
-        </svg>
-      </span>
-      <h3>Windows RDP</h3>
-      <p>Web 远程桌面连接</p>
-    </a>
+    <div class="card">
+      <div class="card-image">
+        <img src="https://photos.pangpy.com/guan-bingxian/guanbingxian.JPG" alt="管秉贤 先生">
+      </div>
+      <h3>管秉贤 先生</h3>
+      <p class="card-tag">物理海洋学家 · 复旦学士</p>
+      <div class="card-divider"></div>
+      <p class="card-desc">中国海洋环流研究开拓者。发现冬季逆风海流，为中国近海潮汐与海浪预报奠定基石。</p>
+      <a href="guan-bingxian.html" class="btn-read">查阅文库</a>
+    </div>
+
   </div>
 
   <div class="about">
     <h3 class="about-title">关于 pangpy</h3>
-
     <p>
       我太太特别喜欢猪的卡通形象。从“猪小屁”表情包到各种布质、木质、陶制的小猪玩偶和摆件，
       她总会想办法把它们带回家，或使用、或摆放在家里随时欣赏。
     </p>
-
     <p>
       pangpy 是“胖屁”的谐音，是女儿小时候开玩笑给妈妈起的昵称。
       女儿叫妈妈“小胖屁”，因为妈妈是家里最胖的；
       妈妈则叫女儿“小肉肉”，因为女儿自幼偏瘦，她总希望女儿多长点肉。
     </p>
-
     <p>
       我注册 <b>pangpy.com</b> 这个域名，
       是为了纪念在 <b>2025 年 9 月离世的女儿的妈妈——也是我的太太</b>。
     </p>
-
     <p>
       我用这个网站记录她的生平照片，
       也记录我们一家人曾经拥有的那些幸福、温暖的时刻。
     </p>
-
     <p class="blessing">
       愿她在天堂平安喜乐地陪伴着我们。<br>
       愿她永生。阿门。
     </p>
-
     <p class="date">2026.03</p>
   </div>
 
-  <!-- ✅ Apple 风底部版权区（新增） -->
   <footer class="site-footer">
     <p class="footer-line">© 2026 pangpy.com</p>
     <p class="footer-line">Photo © Hanjun Wang · Grand Teton National Park</p>
     <p class="footer-line">Contact · <a href="mailto:contact@pangpy.com">contact@pangpy.com</a></p>
   </footer>
-</body>
 
+  <div class="admin-tools">
+    <a href="https://family.pangpy.com" target="_blank" title="私密家庭相册">
+      <span class="icon-small">🔒</span>
+      <span class="text">家庭相册</span>
+    </a>
+    
+    <a href="ha.html" target="_blank" title="Home Assistant">
+      <span class="icon-small">🔒</span>
+      <span class="text">HA 中枢</span>
+    </a>
+    
+    <a href="https://rdp.pangpy.com:8973" target="_blank" title="Windows RDP">
+      <span class="icon-small">🔒</span>
+      <span class="text">RDP 桌面</span>
+    </a>
+  </div>
+
+</body>
 </html>
