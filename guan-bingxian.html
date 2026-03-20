@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>管秉贤先生 学术文库 - 🐷之家</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  
+
   <style>
     /* 全局样式与雪山背景 */
     body {
@@ -35,7 +36,7 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
     }
 
     /* 顶部导航 */
@@ -44,6 +45,7 @@
       max-width: 800px;
       margin-bottom: 30px;
     }
+
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -58,6 +60,7 @@
       font-size: 0.95rem;
       transition: all 0.3s;
     }
+
     .back-btn:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: translateX(-3px);
@@ -73,7 +76,7 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 20px;
       padding: 40px 50px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
       box-sizing: border-box;
     }
 
@@ -86,20 +89,23 @@
       padding-bottom: 30px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
+
     .profile-img {
       width: 160px;
       height: 200px;
       border-radius: 12px;
       object-fit: cover;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
     }
+
     .profile-info h1 {
       margin: 0 0 10px 0;
       font-size: 2.2rem;
       font-family: 'Georgia', serif;
       letter-spacing: 2px;
     }
+
     .profile-info .title {
       font-size: 1.05rem;
       color: rgba(255, 255, 255, 0.9);
@@ -114,11 +120,12 @@
       padding-left: 12px;
       margin-top: 0;
     }
+
     .bio-section p {
       line-height: 1.8;
       font-size: 1.05rem;
       color: rgba(255, 255, 255, 0.95);
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       margin-bottom: 20px;
       text-align: justify;
     }
@@ -130,13 +137,15 @@
       margin: 30px 0;
       justify-content: center;
     }
+
     .diploma-gallery img {
       width: 48%;
       border-radius: 8px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       transition: transform 0.3s ease;
     }
+
     .diploma-gallery img:hover {
       transform: scale(1.02);
     }
@@ -147,18 +156,20 @@
       padding-top: 30px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
+
     .paper-list h2 {
       font-size: 1.4rem;
       margin-bottom: 25px;
     }
+
     .category-title {
       font-size: 1.1rem;
       color: rgba(255, 255, 255, 0.8);
       margin: 20px 0 10px 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.3);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
       padding-bottom: 5px;
     }
-    
+
     .paper-item {
       display: flex;
       justify-content: space-between;
@@ -170,10 +181,12 @@
       transition: all 0.3s;
       border-left: 3px solid transparent;
     }
+
     .paper-item:hover {
       background: rgba(0, 0, 0, 0.4);
       border-left: 3px solid #fff;
     }
+
     .paper-title {
       font-size: 1.05rem;
       color: #fff;
@@ -181,6 +194,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .btn-download {
       padding: 8px 18px;
       background: #fff;
@@ -192,18 +206,39 @@
       transition: all 0.2s;
       white-space: nowrap;
     }
+
     .btn-download:hover {
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
     }
 
     @media (max-width: 600px) {
-      .content-box { padding: 30px 20px; }
-      .profile-header { flex-direction: column; text-align: center; }
-      .diploma-gallery { flex-direction: column; }
-      .diploma-gallery img { width: 100%; }
-      .paper-item { flex-direction: column; align-items: flex-start; gap: 15px; }
-      .btn-download { align-self: flex-start; }
+      .content-box {
+        padding: 30px 20px;
+      }
+
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .diploma-gallery {
+        flex-direction: column;
+      }
+
+      .diploma-gallery img {
+        width: 100%;
+      }
+
+      .paper-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .btn-download {
+        align-self: flex-start;
+      }
     }
   </style>
 </head>
@@ -224,25 +259,33 @@
 
     <div class="bio-section">
       <h2>生平与科学成就</h2>
-      <p>管秉贤 (1923.3.13-2015.3.13)，浙江上虞人。物理海洋学家，我国海洋环流研究的开拓者和奠基人之一。1950年毕业于复旦大学海洋专业。1984年由国家学位委员会评为物理海洋学博士生导师。曾任中国科学院海洋研究所物理海洋学研究室副主任，国际海洋物理科学协会中国委员会主席和中国海洋湖沼学会理事等职。</p>
+      <p>管秉贤
+        (1923.3.13-2015.3.13)，浙江上虞人。物理海洋学家，我国海洋环流研究的开拓者和奠基人之一。1950年毕业于复旦大学海洋专业。1984年由国家学位委员会评为物理海洋学博士生导师。曾任中国科学院海洋研究所物理海洋学研究室副主任，国际海洋物理科学协会中国委员会主席和中国海洋湖沼学会理事等职。
+      </p>
 
       <div class="diploma-gallery">
-        <img src="https://photos.pangpy.com/guan-bingxian/diploma1.jpg" alt="复旦大学毕业证书 1">
-        <img src="https://photos.pangpy.com/guan-bingxian/diploma2.jpg" alt="复旦大学毕业证书 2">
+        <img src="https://photos.pangpy.com/guan-bingxian/diploma1.jpg" alt="复旦大学毕业证书 1" class="view-original">
+        <img src="https://photos.pangpy.com/guan-bingxian/diploma2.jpg" alt="复旦大学毕业证书 2" class="view-original">
       </div>
 
-      <p>他长期致力于海洋环流与海气相互关系的研究。他的专著《中国东南近海冬季逆风海流》系统地阐述了他所发现的南海暖流和台湾暖流的时空变化特征（合作者陈上及，1964），提出了中国东南近海冬季存在逆风北上海流的创新思想。他的“南海暖流的发现”获中国科学院科技进步奖一等奖（1986）。他率先提出了渤、黄、东海和南海北部海流结构框架和流系模式图。他的“渤、黄、东海逐月表层海流图”给出了中国浅海环流的分布特征。他的“中国海海流结构的研究”获山东省首届科学大会奖（1978）。</p>
-      
-      <p>他发现了中国琼东沿岸、广州湾、汕头沿岸和浙东沿岸等处夏季存在上升流的现象。他发现了中国近海若干著名的中尺度涡旋等。他是中国大陆学者对东海黑潮研究的开创者。他的“黑潮及其邻域海流结构和变异的研究”获第三次国家自然科学奖四等奖（1988）。他在西北太平洋环流的研究中也取得诸多成果，其中“黑潮源地及赤道区海流结构及其与中国近海海气相互关系的研究”获中国科学院自然科学二等奖（1992）。他的研究成果不仅奠定了中国近海环流的研究基础，而且也对西北太平洋环流和海气相互关系的研究有重要的开拓作用。</p>
+      <p>
+        他长期致力于海洋环流与海气相互关系的研究。他的专著《中国东南近海冬季逆风海流》系统地阐述了他所发现的南海暖流和台湾暖流的时空变化特征（合作者陈上及，1964），提出了中国东南近海冬季存在逆风北上海流的创新思想。他的“南海暖流的发现”获中国科学院科技进步奖一等奖（1986）。他率先提出了渤、黄、东海和南海北部海流结构框架和流系模式图。他的“渤、黄、东海逐月表层海流图”给出了中国浅海环流的分布特征。他的“中国海海流结构的研究”获山东省首届科学大会奖（1978）。
+      </p>
 
-      <p>管秉贤教授深受国内外海洋界同行们尊敬和爱戴，他在我国近海海流研究方面作了多项创新性贡献；他治学严谨，处事公正，待人诚恳，和蔼可亲。他退休后仍从事海洋学方面的研究工作，直到去世前仍在忙碌编撰他的论文集，念念不忘为后人留下一部较为完整的专著，但未能如愿。管先生为我国物理海洋事业沥尽心血，于2015年3月13日下午5:20时安然离世。享年92周岁。</p>
+      <p>
+        他发现了中国琼东沿岸、广州湾、汕头沿岸和浙东沿岸等处夏季存在上升流的现象。他发现了中国近海若干著名的中尺度涡旋等。他是中国大陆学者对东海黑潮研究的开创者。他的“黑潮及其邻域海流结构和变异的研究”获第三次国家自然科学奖四等奖（1988）。他在西北太平洋环流的研究中也取得诸多成果，其中“黑潮源地及赤道区海流结构及其与中国近海海气相互关系的研究”获中国科学院自然科学二等奖（1992）。他的研究成果不仅奠定了中国近海环流的研究基础，而且也对西北太平洋环流和海气相互关系的研究有重要的开拓作用。
+      </p>
+
+      <p>
+        管秉贤教授深受国内外海洋界同行们尊敬和爱戴，他在我国近海海流研究方面作了多项创新性贡献；他治学严谨，处事公正，待人诚恳，和蔼可亲。他退休后仍从事海洋学方面的研究工作，直到去世前仍在忙碌编撰他的论文集，念念不忘为后人留下一部较为完整的专著，但未能如愿。管先生为我国物理海洋事业沥尽心血，于2015年3月13日下午5:20时安然离世。享年92周岁。
+      </p>
     </div>
 
     <div class="paper-list">
       <h2>遗志长存 · 学术论文档案 (PDF)</h2>
-      
+
       <div class="category-title">生平传记与学术目录</div>
-      
+
       <div class="paper-item">
         <span class="paper-title">📖 管秉贤先生自传</span>
         <a href="https://photos.pangpy.com/guan-bingxian/gbx.pdf" target="_blank" class="btn-download">阅读自传</a>
@@ -277,5 +320,65 @@
 
     </div>
   </div>
+  <style>
+    /* 黑色的背景幕布 */
+    #simple-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      /* 90%纯黑背景 */
+      display: none;
+      /* 默认藏起来 */
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* 幕布显示时的状态 */
+    #simple-overlay.show {
+      display: flex;
+    }
+
+    /* 原图在幕布里的限制 */
+    #simple-overlay img {
+      max-width: 95vw;
+      max-height: 95vh;
+      /* 保证原图再大也不会撑出屏幕边缘 */
+      object-fit: contain;
+    }
+
+    /* 给网页上的照片加上小手图标 */
+    .view-original {
+      cursor: pointer;
+    }
+  </style>
+
+  <div id="simple-overlay">
+    <img id="simple-overlay-img" src="">
+  </div>
+
+  <script>
+    const overlay = document.getElementById('simple-overlay');
+    const overlayImg = document.getElementById('simple-overlay-img');
+
+    // 找到网页上所有标记了 view-original 的照片
+    document.querySelectorAll('.view-original').forEach(img => {
+      img.addEventListener('click', function () {
+        // 核心逻辑：把您点击的图片链接，塞进黑幕里的大相框，然后显示黑幕
+        overlayImg.src = this.src;
+        overlay.classList.add('show');
+      });
+    });
+
+    // 点击黑幕或者大图，直接关闭
+    overlay.addEventListener('click', () => {
+      overlay.classList.remove('show');
+      overlayImg.src = ""; // 清空相框，节省内存
+    });
+  </script>
 </body>
+
 </html>
