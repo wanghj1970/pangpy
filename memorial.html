@@ -104,7 +104,9 @@
     /* =========================================
        3. 阅读器卡片（浅色透亮玻璃质感）
        ========================================= */
-    .reader, .controls, .numbers {
+    .reader,
+    .controls,
+    .numbers {
       width: 100%;
       max-width: 760px;
       box-sizing: border-box;
@@ -119,7 +121,7 @@
       padding: 34px 28px;
       box-shadow: 0 14px 45px rgba(0, 0, 0, 0.14);
       /* 移除 pan-y，让浏览器接管手机原生下拉滑动体验 */
-      user-select: none; 
+      user-select: none;
     }
 
     .page {
@@ -133,8 +135,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* =========================================
@@ -207,7 +216,7 @@
     .photo-gallery {
       display: flex;
       flex-direction: column;
-      gap: 30px; 
+      gap: 30px;
       padding-bottom: 30px;
     }
 
@@ -261,8 +270,15 @@
       font-family: inherit;
     }
 
-    button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.22); }
-    button:disabled { opacity: .4; cursor: not-allowed; border-color: transparent; }
+    button:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+      border-color: transparent;
+    }
 
     .numbers {
       margin-top: 15px;
@@ -286,7 +302,9 @@
       color: #fff;
     }
 
-    .source { display: none; }
+    .source {
+      display: none;
+    }
 
     /* =========================================
        7. Apple 风底部版权区
@@ -304,14 +322,32 @@
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
-    .site-footer .footer-line { margin: 6px 0; }
-    .site-footer a { color: rgba(255, 255, 255, 0.86); text-decoration: none; }
-    .site-footer a:hover { text-decoration: underline; }
+    .site-footer .footer-line {
+      margin: 6px 0;
+    }
+
+    .site-footer a {
+      color: rgba(255, 255, 255, 0.86);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
 
     @media (max-width: 520px) {
-      body { padding: 8vh 14px 10vh; }
-      .reader { padding: 26px 20px; }
-      .site-footer { padding-top: 14px; font-size: 11px; }
+      body {
+        padding: 8vh 14px 10vh;
+      }
+
+      .reader {
+        padding: 26px 20px;
+      }
+
+      .site-footer {
+        padding-top: 14px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
@@ -341,7 +377,8 @@
       <div class="date">永远怀念 · 不曾遗忘</div>
     </div>
 
-    <img src="https://photos.pangpy.com/guan-beihong/main.jpg" class="main-photo" id="mainPhoto" alt="最美的你" onerror="this.style.display='none'">
+    <img src="https://photos.pangpy.com/guan-beihong/main.jpg" class="main-photo" id="mainPhoto" alt="最美的你"
+      onerror="this.style.display='none'">
 
     <div id="letterContent">
       <p>时间过得很快，但有些记忆从来没有褪色。生活还在继续，每一天的琐碎日常我都在认真地过，只是偶尔在某个瞬间，依然会非常想念你。</p>
@@ -361,267 +398,277 @@
 
     <div id="albumSection">
       <div class="photo-gallery" id="photoGallery">
-        
+
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/kid01.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/kid01.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">1969年9月19日 出生于青岛。</div>
         </div>
 
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/kid02.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/kid02.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">童年，与姐姐一起看海。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/kid03.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/kid03.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">童年，在青岛海边。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/kid04.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/kid04.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">唯一的童年彩色回忆。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong02.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong02.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">和高中同学一起游览崂山。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong03.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong03.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">高中时候和爸爸在一起。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong04.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong04.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">美好的学生时光。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong05.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong05.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">在青岛栖霞路家的阳台上。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong06.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong06.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">高兴地合不上嘴了。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong07.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong07.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">在青岛港城丽港房地产有限公司做总经理秘书。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong08.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong08.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">在青岛集浩房地产开发公司做助理时游览八大关。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong09.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong09.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">在青岛中山公园观赏樱花。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong10.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong10.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">结婚以前我们在青岛海边游玩。</div>
         </div>
 
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/199601.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/199601.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">1996年 参加青岛集浩房地产开发公司聚餐</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/memory1.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/memory1.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">1996年9月，黑龙江镜泊湖，这是我们一起去过的地方，我一直都记得。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/199901.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/199901.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">1999年1月 去深圳植物园游玩</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/199902.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/199902.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">1999年1月 去深圳世界之窗主题公园游玩</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/200201.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/200201.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2002年2月，怀孕6个月啦</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/200602.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/200602.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2006年结婚10周年，拍摄于青岛台东一路金夫人照相馆</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/beihong01.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/beihong01.jpg" alt="回忆照片"
+            onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2007年拍摄的证件照。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/200701.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/200701.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2007年12月 于上海青浦曲水园</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/201201.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/201201.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2012年1月 于印度尼西亚巴厘岛ClubMad度假村</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/201401.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/201401.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2014年5月 于上海青浦公园路避风塘餐厅</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/DSCF2238.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/DSCF2238.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2015年 加拿大渥太华湖边</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/201601.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/201601.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2016年2月 在母校青岛第39中学门口打卡</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/IMG_8182.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/IMG_8182.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2017年6月 加拿大魁北克Chelsea Lac Meech湖边自拍</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/35CF2729.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/35CF2729.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2017年7月 加拿大班夫国家公园路易斯湖</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/35CF2759.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/35CF2759.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2017年7月 加拿大Upper Kananaskis Lake</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/35CF2904.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/35CF2904.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2017年7月 加拿大Yoho国家公园翡翠湖</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/IMG_1814.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/IMG_1814.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2017年7月 加拿大Jasper国家公园哥伦比亚冰川</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/IMG_0005.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/IMG_0005.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2018年7月 青岛与老同学聚会</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/201901.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/201901.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2018年12月 在上海张江科技园DXC公司又上班了</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202101.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202101.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2021年5月 捧着乐乐在母亲节送的鲜花，脸上笑开了花</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202102.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202102.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2021年12月 在上海浦东横沔公园</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202202.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202202.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2022年9月19日 我53周岁啦</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202302.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202302.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2023年4月 在浙江建德梅城的富春江边散步</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202303.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202303.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2023年7月 在广西桂林漓江游轮上</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202307.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202307.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2023年11月 在福建龙岩永定云水谣景区</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202308.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202308.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2023年11月 在福建泉州崇武古城海边</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202310.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202310.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2023年11月 在福建土楼云水谣景区</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202413.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202413.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2024年1月 获得DXC年度最佳员工称号</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202402.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202402.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2024年2月 在北京怀柔慕田峪长城景区</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202412.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202412.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2024年6月 在浙江千岛湖景区</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/XS100982.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/XS100982.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2024年6月 在浙江千岛湖景区游轮上.</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202405.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202405.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2024年9月 在云南香格里拉白马雪山G214 海拔4292米</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202406.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202406.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2024年9月 在云南德钦县梅里雪山景区看夕阳</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202408.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202408.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2024年9月 在云南香格里拉白马雪山G214 草甸</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202409.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202409.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2024年9月 在云南金沙江大拐弯观景台</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/memory2.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/memory2.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月，美国大提顿国家公园，那天阳光很好，你的笑容更好。</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202505.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202505.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月 美国大提顿国家公园看日出</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/20250501.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/20250501.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月 美国纽约州康奈尔大学参观乐乐的学院</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/20250504.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/20250504.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月 美国锡安国家公园</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/20250505.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/20250505.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月 美国纽约州康奈尔大学参观乐乐的学院</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/20250506.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/20250506.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月 美国纽约州康奈尔大学参加乐乐毕业典礼</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202506.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202506.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月 美国大提顿国家公园Snake River</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/20250602.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/20250602.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月 美国锡安国家公园河边洗脚</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/IMG_9296.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/IMG_9296.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月 美国康奈尔大学参加乐乐毕业典礼与卡通熊合影</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/IMG_9574.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/IMG_9574.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年5月30号 黄石国家公园West Thumb Lake边喷泉</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/20250603.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/20250603.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年6月 美国黄石国家公园北门</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/20250605.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/20250605.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年6月 美国黄石国家公园看野生动物自拍</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202508.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202508.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年6月 美国黄石国家公园纪念品店带牛仔帽</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202513.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202513.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年6月 美国Page马蹄湾附近酒店阳台</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/202514.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/202514.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年6月 美国布莱斯峡谷国家公园马厩看马</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/IMG_5108.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/IMG_5108.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年6月 美国黄石国家公园Lower Falls大峡谷瀑布</div>
         </div>
         <div class="gallery-item">
-          <img src="https://photos.pangpy.com/guan-beihong/IMG_5682.jpg" alt="回忆照片" onerror="this.style.display='none'">
+          <img src="https://photos.pangpy.com/guan-beihong/IMG_5682.jpg" alt="回忆照片" onerror="this.style.display='none'" class="view-original">
           <div class="gallery-caption">2025年6月 美国布莱斯峡谷国家公园</div>
         </div>
 
@@ -768,7 +815,7 @@
       let touchstartY = 0;
       let touchendX = 0;
       let touchendY = 0;
-      const swipeThreshold = 50; 
+      const swipeThreshold = 50;
 
       reader.addEventListener('touchstart', e => {
         touchstartX = e.changedTouches[0].screenX;
@@ -803,6 +850,65 @@
     <p class="footer-line">Photo © Hanjun Wang · Grand Teton National Park</p>
     <p class="footer-line">Contact · <a href="mailto:contact@pangpy.com">contact@pangpy.com</a></p>
   </footer>
+  <style>
+    /* 黑色的背景幕布 */
+    #simple-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      /* 90%纯黑背景 */
+      display: none;
+      /* 默认藏起来 */
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* 幕布显示时的状态 */
+    #simple-overlay.show {
+      display: flex;
+    }
+
+    /* 原图在幕布里的限制 */
+    #simple-overlay img {
+      max-width: 95vw;
+      max-height: 95vh;
+      /* 保证原图再大也不会撑出屏幕边缘 */
+      object-fit: contain;
+    }
+
+    /* 给网页上的照片加上小手图标 */
+    .view-original {
+      cursor: pointer;
+    }
+  </style>
+
+  <div id="simple-overlay">
+    <img id="simple-overlay-img" src="">
+  </div>
+
+  <script>
+    const overlay = document.getElementById('simple-overlay');
+    const overlayImg = document.getElementById('simple-overlay-img');
+
+    // 找到网页上所有标记了 view-original 的照片
+    document.querySelectorAll('.view-original').forEach(img => {
+      img.addEventListener('click', function () {
+        // 核心逻辑：把您点击的图片链接，塞进黑幕里的大相框，然后显示黑幕
+        overlayImg.src = this.src;
+        overlay.classList.add('show');
+      });
+    });
+
+    // 点击黑幕或者大图，直接关闭
+    overlay.addEventListener('click', () => {
+      overlay.classList.remove('show');
+      overlayImg.src = ""; // 清空相框，节省内存
+    });
+  </script>
 </body>
 
 </html>
