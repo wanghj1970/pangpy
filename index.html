@@ -80,7 +80,7 @@
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
-    /* ✅ 三足鼎立网格（宽度扩充到 1100px） */
+    /* ✅ 三足鼎立网格 */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -181,7 +181,7 @@
       color: #333;
     }
 
-    /* 关于 pangpy：B 策略 */
+    /* 关于 pangpy 卡片 */
     .about {
       margin-top: 72px;
       width: 100%;
@@ -221,20 +221,11 @@
       font-weight: 700;
     }
 
-    .blessing {
-      text-align: center;
-      font-size: 1.05rem;
-      margin-top: 18px;
-      font-weight: 600;
-      color: rgba(17, 24, 39, 0.88);
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
+    /* ✅ 完美恢复日期的专属排版样式 */
     .date {
       text-align: center;
       margin-top: 16px;
+      margin-bottom: 0 !important; /* 确保底部收紧 */
       opacity: 0.85;
       font-size: 0.86rem;
       letter-spacing: 1px;
@@ -262,7 +253,7 @@
     .site-footer a { color: rgba(255, 255, 255, 0.86); text-decoration: none; }
     .site-footer a:hover { text-decoration: underline; }
 
-    /* ✅ 隐形保险箱：右下角悬浮私密通道 */
+    /* 隐形保险箱：右下角悬浮私密通道 */
     .admin-tools {
       position: fixed;
       bottom: 25px;
@@ -277,7 +268,7 @@
       display: flex;
       align-items: center;
       padding: 8px 14px;
-      background: rgba(255, 255, 255, 0.08); /* 极低存在感 */
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -293,7 +284,7 @@
       background: rgba(255, 255, 255, 0.2);
       color: #fff;
       border-color: rgba(255, 255, 255, 0.4);
-      transform: translateX(-4px); /* 鼠标放上去向左微微弹出 */
+      transform: translateX(-4px);
     }
 
     .admin-tools .icon-small { font-size: 15px; margin-right: 8px;}
@@ -303,7 +294,6 @@
       body { padding: 8vh 14px 10vh; }
       .about { padding: 26px 20px; }
       .site-footer { padding-top: 14px; font-size: 11px; }
-      /* 手机端稍微隐藏悬浮按钮，避免挡住文字 */
       .admin-tools { transform: scale(0.8); right: 5px; bottom: 10px; }
     }
   </style>
@@ -371,10 +361,6 @@
     <p>
       我用这个网站记录她的生平照片，
       也记录我们一家人曾经拥有的那些幸福、温暖的时刻。
-    </p>
-    <p class="blessing">
-      愿她在天堂平安喜乐地陪伴着我们。<br>
-      愿她永生。阿门。
     </p>
     <p class="date">2026.03</p>
   </div>
