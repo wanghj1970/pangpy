@@ -5,6 +5,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://photos.pangpy.com" crossorigin>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -412,8 +413,13 @@
       <div class="date">永远怀念 · 不曾遗忘</div>
     </div>
 
-    <img src="https://photos.pangpy.com/guan-beihong/main.jpg" class="main-photo" id="mainPhoto" alt="最美的你"
-      onerror="this.style.display='none'">
+    <img src="https://photos.pangpy.com/guan-beihong/main.jpg" 
+     class="main-photo" 
+     id="mainPhoto" 
+     alt="我的愛妻"
+     fetchpriority="high"
+     decoding="async"
+     onerror="this.style.display='none'">
 
     <div id="letterContent">
       <p>时间过得很快，但有些记忆从来没有褪色。生活还在继续，每一天的琐碎日常我都在认真地过，只是偶尔在某个瞬间，依然会非常想念你。</p>
