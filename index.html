@@ -23,7 +23,6 @@
       color: #fff;
     }
 
-    /* 背景图：原封不动保留，极其清晰 */
     body::after {
       content: "";
       position: fixed;
@@ -40,7 +39,6 @@
       will-change: transform;
     }
 
-    /* 遮罩：入口最通透 */
     body::before {
       content: "";
       position: fixed;
@@ -52,44 +50,15 @@
           rgba(0, 0, 0, 0.16) 100%);
     }
 
-    .header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .header h1 {
-      font-weight: 600;
-      font-size: 2.6em;
-      letter-spacing: 3px;
-      margin: 0;
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
-    }
-
-    .header p {
-      font-size: 1.1em;
-      margin-top: 12px;
-      opacity: .92;
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    .subtitle {
-      font-size: 0.85rem;
-      opacity: 0.78;
-      letter-spacing: 1px;
-      margin-top: 8px;
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    /* ✅ 三足鼎立网格 */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       width: 100%;
       max-width: 1100px;
+      margin-top: 56px;
     }
 
-    /* 卡片毛玻璃样式 */
     .card {
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -112,7 +81,6 @@
       box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
     }
 
-    /* 卡片内部排版元素 */
     .card-image {
       width: 100%;
       height: 220px;
@@ -181,9 +149,7 @@
       color: #333;
     }
 
-    /* 关于 pangpy 卡片 */
     .about {
-      margin-top: 72px;
       width: 100%;
       max-width: 820px;
       line-height: 1.95;
@@ -221,11 +187,10 @@
       font-weight: 700;
     }
 
-    /* ✅ 完美恢复日期的专属排版样式 */
     .date {
       text-align: center;
       margin-top: 16px;
-      margin-bottom: 0 !important; /* 确保底部收紧 */
+      margin-bottom: 0 !important;
       opacity: 0.85;
       font-size: 0.86rem;
       letter-spacing: 1px;
@@ -235,7 +200,6 @@
       margin-right: auto;
     }
 
-    /* Apple 风底部版权区 */
     .site-footer {
       width: 100%;
       max-width: 820px;
@@ -253,7 +217,6 @@
     .site-footer a { color: rgba(255, 255, 255, 0.86); text-decoration: none; }
     .site-footer a:hover { text-decoration: underline; }
 
-    /* 隐形保险箱：右下角悬浮私密通道 */
     .admin-tools {
       position: fixed;
       bottom: 25px;
@@ -293,6 +256,7 @@
     @media (max-width: 520px) {
       body { padding: 8vh 14px 10vh; }
       .about { padding: 26px 20px; }
+      .grid { margin-top: 44px; }
       .site-footer { padding-top: 14px; font-size: 11px; }
       .admin-tools { transform: scale(0.8); right: 5px; bottom: 10px; }
     }
@@ -300,10 +264,27 @@
 </head>
 
 <body>
-  <div class="header">
-    <h1>🐷之家</h1>
-    <p>欢迎回家</p>
-    <div class="subtitle">pangpy.com</div>
+
+  <div class="about">
+    <h3 class="about-title">🐷之家 · 关于 pangpy</h3>
+    <p>
+      我太太特别喜欢猪的卡通形象。从“猪小屁”表情包到各种布质、木质、陶制的小猪玩偶和摆件，
+      她总会想办法把它们带回家，或使用、或摆放在家里随时欣赏。
+    </p>
+    <p>
+      pangpy 是“胖屁”的谐音，是女儿小时候开玩笑给妈妈起的昵称。
+      女儿叫妈妈“小胖屁”，因为妈妈是家里最胖的；
+      妈妈则叫女儿“小肉肉”，因为女儿自幼偏瘦，她总希望女儿多长点肉。
+    </p>
+    <p>
+      我注册 <b>pangpy.com</b> 这个域名，
+      是为了纪念在 <b>2025 年 9 月离世的女儿的妈妈——也是我的太太</b>。
+    </p>
+    <p>
+      我用这个网站记录她的生平照片，
+      同时还记录她的父亲（管秉贤）和大爷爷（管家骥）的生平成就。
+    </p>
+    <p class="date">2026.03</p>
   </div>
 
   <div class="grid">
@@ -341,28 +322,6 @@
       <a href="guan-bingxian.html" class="btn-read">生平成就</a>
     </div>
 
-  </div>
-
-  <div class="about">
-    <h3 class="about-title">关于 pangpy</h3>
-    <p>
-      我太太特别喜欢猪的卡通形象。从“猪小屁”表情包到各种布质、木质、陶制的小猪玩偶和摆件，
-      她总会想办法把它们带回家，或使用、或摆放在家里随时欣赏。
-    </p>
-    <p>
-      pangpy 是“胖屁”的谐音，是女儿小时候开玩笑给妈妈起的昵称。
-      女儿叫妈妈“小胖屁”，因为妈妈是家里最胖的；
-      妈妈则叫女儿“小肉肉”，因为女儿自幼偏瘦，她总希望女儿多长点肉。
-    </p>
-    <p>
-      我注册 <b>pangpy.com</b> 这个域名，
-      是为了纪念在 <b>2025 年 9 月离世的女儿的妈妈——也是我的太太</b>。
-    </p>
-    <p>
-      我用这个网站记录她的生平照片，
-      同时还记录她的父亲（管秉贤）和大爷爷（管家骥）的生平成就。
-    </p>
-    <p class="date">2026.03</p>
   </div>
 
   <footer class="site-footer">
